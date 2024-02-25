@@ -1,0 +1,8 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1708891183
+3DScene.tscn::PackedScene::1572545399026647361::1708891161::0::1::::<><>::uid://bsdjk32xweudv::::res://custom-centerstage-field-diagrams-works-with-meepmeep-v0-osvn5chufpob1.png<>res://Camera.gd<>res://Perspective.gd
+Camera.gd::GDScript::-1::1708890662::0::1::::<>CharacterBody3D<>::
+custom-centerstage-field-diagrams-works-with-meepmeep-v0-osvn5chufpob1.png::CompressedTexture2D::3656578826751928299::1708888763::1708888771::1::::<><>::
+global.gd::GDScript::-1::1708889294::0::1::::<>Node<>::
+icon.svg::CompressedTexture2D::8598310665893863585::1708846385::1708846389::1::::<><>::
+Perspective.gd::GDScript::-1::1708891161::0::1::::<>Camera3D<>::
