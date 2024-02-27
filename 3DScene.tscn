@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://wn0ufqdo7dwj"]
+[gd_scene load_steps=19 format=3 uid="uid://wn0ufqdo7dwj"]
 
 [ext_resource type="Texture2D" uid="uid://bsdjk32xweudv" path="res://custom-centerstage-field-diagrams-works-with-meepmeep-v0-osvn5chufpob1.png" id="1_l1ipg"]
 [ext_resource type="Script" path="res://Camera.gd" id="1_to163"]
 [ext_resource type="Script" path="res://Perspective.gd" id="3_p46a0"]
+[ext_resource type="PackedScene" uid="uid://bsaieocvuwi64" path="res://settings.tscn" id="4_0v8qm"]
+[ext_resource type="Script" path="res://CurveControl.gd" id="5_nyvm8"]
+[ext_resource type="PackedScene" uid="uid://cwsu1pmu0hkbh" path="res://Field.blend" id="6_2cl2j"]
+[ext_resource type="Script" path="res://MovingBot.gd" id="7_g68l7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hcqjj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,16 +26,38 @@ albedo_texture = ExtResource("1_l1ipg")
 [sub_resource type="PlaneMesh" id="PlaneMesh_s0oqx"]
 size = Vector2(12, 12)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sn01m"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xrofh"]
+data = PackedVector3Array(6, 0, 6, -6, 0, 6, 6, 0, -6, -6, 0, 6, -6, 0, -6, 6, 0, -6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64wka"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.541176)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eeb4p"]
+material = SubResource("StandardMaterial3D_64wka")
+
+[sub_resource type="Curve3D" id="Curve3D_enq53"]
+_data = {
+"points": PackedVector3Array(-0.98, -2.25, 0, -0.615, 0, -3.225, 0, 4.67, 0, -0.98, 0, -3.155, -0.615, 0, 0, -3.81, 4.565, 0),
+"tilts": PackedFloat32Array(6.43, -1.39)
+}
+point_count = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_aroxe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xcc6q"]
+size = Vector3(0.2, 0.2, 0.5)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="settings" parent="." instance=ExtResource("4_0v8qm")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p83l1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.677
 shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="."]
@@ -39,9 +65,10 @@ material_override = SubResource("StandardMaterial3D_d7jxq")
 mesh = SubResource("PlaneMesh_s0oqx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_sn01m")
+shape = SubResource("ConcavePolygonShape3D_xrofh")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.715398, 0)
@@ -51,3 +78,43 @@ script = ExtResource("1_to163")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
 script = ExtResource("3_p46a0")
+
+[node name="ghostBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0580235, 0)
+mesh = SubResource("BoxMesh_eeb4p")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_enq53")
+script = ExtResource("5_nyvm8")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.999996, 0, 0, 0, 0.999984, 0, 0, 0, 0.999995, 0, 4.67, 0)
+rotation_mode = 0
+use_model_front = true
+cubic_interp = false
+
+[node name="MovingBot" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_aroxe")
+skeleton = NodePath("../../..")
+script = ExtResource("7_g68l7")
+
+[node name="Front" type="MeshInstance3D" parent="Path3D/PathFollow3D/MovingBot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_xcc6q")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+polygon = PackedVector2Array(0.02, 0, 0.014, -0.014, 0, -0.02, -0.014, -0.014, -0.02, 0, -0.014, 0.014, 0, 0.02, 0.014, 0.014)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 0.1
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Field" parent="." instance=ExtResource("6_2cl2j")]
+transform = Transform3D(3.275, 0, 0, 0, 3.275, 0, 0, 0, 3.275, 5.9892, -0.0869989, 5.98893)

@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsaieocvuwi64"]
+
+[ext_resource type="Script" path="res://setGlobalDim.gd" id="1_s147x"]
+[ext_resource type="Script" path="res://crossHair.gd" id="2_1e2bm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkak4"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_s147x")
+
+[node name="WidthSelection" type="SpinBox" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 134.0
+offset_bottom = 41.0
+mouse_filter = 2
+value = 12.0
+prefix = "Width:"
+suffix = "in"
+select_all_on_focus = true
+
+[node name="LengthSelection" type="SpinBox" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 51.0
+offset_right = 134.0
+offset_bottom = 82.0
+mouse_filter = 2
+value = 12.0
+prefix = "Length:"
+suffix = "in"
+select_all_on_focus = true
+
+[node name="HeightSelection" type="SpinBox" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 92.0
+offset_right = 134.0
+offset_bottom = 123.0
+mouse_filter = 2
+value = 12.0
+prefix = "Height"
+suffix = "in"
+select_all_on_focus = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 635.0
+offset_top = 355.0
+offset_right = 645.0
+offset_bottom = 365.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rkak4")
+script = ExtResource("2_1e2bm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer"]
+offset_left = 198.0
+offset_top = 23.0
+offset_right = 1071.0
+offset_bottom = 81.0
+mouse_filter = 2
+vertical_scroll_mode = 0
+
+[node name="botListContainer" type="HBoxContainer" parent="CanvasLayer/ScrollContainer"]
+custom_minimum_size = Vector2(873, 50)
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[connection signal="value_changed" from="CanvasLayer/WidthSelection" to="CanvasLayer" method="_on_width_selection_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/LengthSelection" to="CanvasLayer" method="_on_length_selection_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HeightSelection" to="CanvasLayer" method="_on_height_selection_value_changed"]
