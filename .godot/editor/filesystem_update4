@@ -1,4 +1,8 @@
 res://3DScene.tscn
+res://GUIControls.tres
+res://testShader.gdshader
 res://bot.tscn
 res://settings.tscn
 res://list_bot.tscn
+res://clipboardControl.gd
+res://Instuctions.tscn

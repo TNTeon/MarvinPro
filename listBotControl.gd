@@ -3,39 +3,75 @@ extends Button
 @onready var backBut = $backBut
 @onready var forwardBut = $forwardBut
 @onready var deleteBut = $deleteBut
+@onready var xCord = $xCord
+@onready var yCord = $yCord
+@onready var tan = $tan
+@onready var heading = $heading
+
+@onready var animationPlrSeek = $"../AnimationPlayerSeek"
+@onready var animationPlrButton = $"../AnimationPlayerButton"
+
 var parent
 var connectedBot
 
 func _ready():
+	animationPlrButton.play("RESETLeft")
 	visibleButtons(false)
+	backBut.visible = false
+	forwardBut.visible = false
+	xCord.visible = false
+	yCord.visible = false
+	tan.visible = false
+	heading.visible = false
 	parent = get_parent()
 	connectedBot = get_node(parent.get_meta("conntectedBot"))
+	connectedBot.setConnection(self)
+	
+	backBut.set_material(backBut.get_material().duplicate(true))
+	forwardBut.set_material(backBut.get_material().duplicate(true))
 	
 
 func _on_pressed():
-	visibleButtons(!backBut.visible)
+	var eventPos = get_viewport().get_mouse_position()
+	if !xCord.visible or not _is_pos_in(eventPos,xCord) and not _is_pos_in(eventPos,yCord) and not _is_pos_in(eventPos,tan) and not _is_pos_in(eventPos,heading):
+		visibleButtons(!deleteBut.visible)
 
 func visibleButtons(areVisible):
-	backBut.visible = areVisible
-	forwardBut.visible = areVisible
 	deleteBut.visible = areVisible
+	if areVisible == true:
+		backBut.visible = areVisible
+		forwardBut.visible = areVisible
+		xCord.visible = areVisible
+		yCord.visible = areVisible
+		tan.visible = areVisible
+		heading.visible = areVisible
+		animationPlrSeek.play("buttonSlideOut")
+	else:
+		animationPlrSeek.play("buttonSlideIn")
+	
 	
 func _is_pos_in(checkpos:Vector2, gr):
 	gr = gr.get_global_rect()
 	return checkpos.x>=gr.position.x and checkpos.y>=gr.position.y and checkpos.x<gr.end.x and checkpos.y<gr.end.y
+
 func _input(event):
-	if (event is InputEventMouseButton and not _is_pos_in(event.position,self) and Input.is_action_just_released("ui_mouse_left")) or event.is_action_pressed("ui_accept"):
+	if (event is InputEventMouseButton and not _is_pos_in(event.position,self) and not _is_pos_in(event.position,xCord) and not _is_pos_in(event.position,yCord) and not _is_pos_in(event.position,tan) and not _is_pos_in(event.position,heading) and (Input.is_action_just_released("ui_mouse_left") or Input.is_action_just_released("ui_mouse_right"))) or Input.is_action_just_pressed("ui_esc"):
 		self.visible = false
 		self.visible = true
 		visibleButtons(false)
 
 func _on_back_but_pressed():
-	var tempPos = global.botOrder.find(connectedBot)
-	global.botOrder.insert(tempPos-1, global.botOrder.pop_at(tempPos))
+	animationPlrButton.play("moveButtonLeft")
+	var otherBot = get_node(global.botOrder[global.botOrder.find(connectedBot)-1].get_meta("connectedListBot"))
+	if !otherBot.find_child("AnimationPlayerButton").is_playing():
+		otherBot.get_child(0)._on_forward_but_pressed()
 	
 func _on_forward_but_pressed():
-	var tempPos = global.botOrder.find(connectedBot)
-	global.botOrder.insert(tempPos+1, global.botOrder.pop_at(tempPos))
+	animationPlrButton.play("moveButtonRight")
+	var otherBot = get_node(global.botOrder[global.botOrder.find(connectedBot)+1].get_meta("connectedListBot"))
+	if !otherBot.find_child("AnimationPlayerButton").is_playing():
+		otherBot.get_child(0)._on_back_but_pressed()
+	
 
 func _on_delete_but_pressed():
 	global.botOrder.remove_at(global.botOrder.find(connectedBot))
@@ -43,9 +79,33 @@ func _on_delete_but_pressed():
 	get_parent().queue_free()
 
 func _process(delta):
+	
+	if global.botOrder.find(connectedBot) == -1:
+		connectedBot.queue_free()
+		get_parent().queue_free()
+	
+	if global.usingTextEdit == null:
+		xCord.text = str(-snapped(connectedBot.position.z*12,0.001))
+		yCord.text = str(-snapped(connectedBot.position.x*12,0.001))
+		tan.text = str(snapped(rad_to_deg(connectedBot.find_child("TangentMover").rotation.y),0.001))
+		heading.text = str(snapped(rad_to_deg(connectedBot.rotation.y),0.001))
+	elif global.usingTextEdit.get_parent() != self:
+		xCord.text = str(-snapped(connectedBot.position.z*12,0.001))
+		yCord.text = str(-snapped(connectedBot.position.x*12,0.001))
+		tan.text = str(snapped(rad_to_deg(connectedBot.find_child("TangentMover").rotation.y),0.001))
+		heading.text = str(snapped(rad_to_deg(connectedBot.rotation.y),0.001))
+	
 	var new_stylebox_normal = self.get_theme_stylebox("normal").duplicate()
 	new_stylebox_normal.bg_color = connectedBot.mesh.material.albedo_color
+	
+	var new_stylebox_hover = self.get_theme_stylebox("normal").duplicate()
+	new_stylebox_hover.bg_color = connectedBot.mesh.material.albedo_color - Color(0.2,0.2,0.2,0)
+	
 	self.add_theme_stylebox_override("normal", new_stylebox_normal)
+	self.add_theme_stylebox_override("hover", new_stylebox_hover)
+	self.add_theme_stylebox_override("pressed", new_stylebox_normal)
+	self.add_theme_stylebox_override("disabled", new_stylebox_normal)
+	self.add_theme_stylebox_override("focus", new_stylebox_normal)
 	
 	parent.get_parent().move_child(parent, global.botOrder.find(connectedBot))
 	var currentListPos = global.botOrder.find(connectedBot)
@@ -53,4 +113,52 @@ func _process(delta):
 		backBut.visible = false
 	if currentListPos == len(global.botOrder)-1:
 		forwardBut.visible = false
-		
+
+func _on_x_cord_pressed():
+	newTextInput(xCord)
+	
+func _on_y_cord_pressed():
+	newTextInput(yCord)
+	
+func _on_tan_pressed():
+	newTextInput(tan)
+
+func _on_heading_pressed():
+	newTextInput(heading)
+
+func newTextInput(obj):
+	global.textInput.visible = true
+	global.textInput.grab_focus()
+	global.textInput.text = obj.text
+	global.usingTextEdit = obj
+	global.textInput.select_all()
+	
+func updateValues():
+	if global.usingTextEdit == xCord:
+		if float(xCord.text) != 0 or xCord.text == "0":
+			connectedBot.position.z = -float(xCord.text)/12.0
+	if global.usingTextEdit == yCord:
+		if float(yCord.text) != 0 or yCord.text == "0":
+			connectedBot.position.x = -float(yCord.text)/12.0
+	if global.usingTextEdit == tan:
+		if float(tan.text) != 0 or tan.text == "0":
+			connectedBot.find_child("TangentMover").rotation.y = deg_to_rad(float(tan.text))
+	if global.usingTextEdit == heading:
+		if float(heading.text) != 0 or heading.text == "0":
+			connectedBot.rotation.y = deg_to_rad(float(heading.text))
+	global.usingTextEdit = null
+
+func updateHues(hue):
+	forwardBut.material.set_shader_parameter("Shift_Hue", 0.83 * hue)
+	backBut.material.set_shader_parameter("Shift_Hue", 0.83 * hue)
+	
+
+func _on_animation_player_button_animation_finished(anim_name):
+	print(str(global.botOrder.find(connectedBot)) + anim_name)
+	if anim_name == "moveButtonRight":
+		animationPlrButton.play("RESET")
+	if anim_name == "moveButtonLeft":
+		animationPlrButton.play("RESETLeft")
+	if anim_name == "RESET":
+		var tempPos = global.botOrder.find(connectedBot)
+		global.botOrder.insert(tempPos+1, global.botOrder.pop_at(tempPos))

@@ -6,7 +6,7 @@ const botScene = preload("res://bot.tscn")
 
 var PosA
 var RotA
-var orthoPos = Vector3(0,10,0)
+var orthoPos = Vector3(0,10,-1)
 var orthoRot = Vector3(-3.14/2,0,0)
 var t = 1
 var currentPersective = true
@@ -23,6 +23,10 @@ func _ready():
 
 #Switch between Perspective and orthographic views
 func _process(delta):
+	if Input.is_action_just_pressed("ui_o"):
+		global.camPerspective = false
+	elif Input.is_action_just_pressed("ui_p"):
+		global.camPerspective = true
 	
 	ghostBox.scale = global.botDimentions/12
 	
@@ -37,10 +41,11 @@ func _process(delta):
 			RotA = self.global_rotation
 		currentPersective = global.camPerspective
 		t = 0
+		global.DontMoveCam = true
 	if t < 1 and !currentPersective:
 		self.global_position = PosA.lerp(orthoPos,t)
 		self.global_rotation = RotA.lerp(orthoRot,t)
-		t += delta * 0.8
+		t += delta * 1.5
 	elif t >= 1 and !currentPersective:
 		self.projection = Camera3D.PROJECTION_ORTHOGONAL
 		field.visible = false
@@ -49,7 +54,9 @@ func _process(delta):
 		self.projection = Camera3D.PROJECTION_PERSPECTIVE
 		self.global_position = orthoPos.lerp(PosA,t)
 		self.global_rotation = orthoRot.lerp(RotA,t)
-		t += delta * 0.8
+		t += delta * 1.5
+	elif t >= 1 and currentPersective:
+		global.DontMoveCam = false
 
 func placeBox():
 	
@@ -62,16 +69,16 @@ func placeBox():
 	var query = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd)
 	var rayArrary = spacestate.intersect_ray(query)
 	
-	if rayArrary.has("position") and rayArrary["collider"] == floorStatic:
+	if rayArrary.has("position") and rayArrary["collider"] == floorStatic and !global.hoveringGUI:
 			ghostBox.visible = true
 			if Input.is_action_pressed("ui_shift"):
 				var newPos = (rayArrary["position"] + Vector3(0,ghostBox.scale.y/2,0))
-				ghostBox.position.x = snapped(newPos.x,1)
+				ghostBox.position.x = snapped(newPos.x,global.snappedInches/12.0)
 				ghostBox.position.y = newPos.y
-				ghostBox.position.z = snapped(newPos.z,1)
+				ghostBox.position.z = snapped(newPos.z,global.snappedInches/12.0)
 			else:
 				ghostBox.position = rayArrary["position"] + Vector3(0,ghostBox.scale.y/2,0)
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			if Input.is_action_just_pressed("ui_mouse_left") && !global.hoveringGUI:#EDITED THIS: Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 				if !mouseHeld:
 					var instanceBot = botScene.instantiate()
 					instanceBot.position = ghostBox.position
@@ -80,7 +87,7 @@ func placeBox():
 				mouseHeld = false
 	else:
 		ghostBox.visible = false
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && !global.hoveringGUI:
 		if !mouseHeld:
 			mouseHeld = true
 	else:

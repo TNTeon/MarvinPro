@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch8eiplk7iqaq"]
+[gd_scene load_steps=12 format=3 uid="uid://ch8eiplk7iqaq"]
 
 [ext_resource type="Script" path="res://bot.gd" id="1_7g7qg"]
 [ext_resource type="PackedScene" uid="uid://txwcakpkje0a" path="res://TangentMover.blend" id="2_x8at5"]
@@ -6,6 +6,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sby2n"]
 resource_local_to_scene = true
+transparency = 1
 
 [sub_resource type="BoxMesh" id="BoxMesh_3lrs2"]
 resource_local_to_scene = true
@@ -20,7 +21,11 @@ metadata/_snap_count = 5
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4tgsc"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgoyh"]
+transparency = 1
+
 [sub_resource type="BoxMesh" id="BoxMesh_y1s0t"]
+material = SubResource("StandardMaterial3D_lgoyh")
 size = Vector3(0.2, 0.2, 0.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l28q8"]
@@ -32,6 +37,7 @@ mesh = SubResource("BoxMesh_3lrs2")
 script = ExtResource("1_7g7qg")
 gradient = SubResource("Gradient_gkhka")
 metadata/orderNum = 0
+metadata/connectedListBot = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -69,3 +75,8 @@ mesh = SubResource("SphereMesh_vdtvm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 visible = false
 mesh = SubResource("SphereMesh_vdtvm")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../TangentMover")
+update_rotation = false
+update_scale = false

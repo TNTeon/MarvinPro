@@ -1,12 +1,138 @@
-[gd_scene load_steps=19 format=3 uid="uid://wn0ufqdo7dwj"]
+[gd_scene load_steps=24 format=3 uid="uid://wn0ufqdo7dwj"]
 
 [ext_resource type="Texture2D" uid="uid://bsdjk32xweudv" path="res://custom-centerstage-field-diagrams-works-with-meepmeep-v0-osvn5chufpob1.png" id="1_l1ipg"]
 [ext_resource type="Script" path="res://Camera.gd" id="1_to163"]
+[ext_resource type="Script" path="res://LineEdit.gd" id="2_gphg1"]
 [ext_resource type="Script" path="res://Perspective.gd" id="3_p46a0"]
 [ext_resource type="PackedScene" uid="uid://bsaieocvuwi64" path="res://settings.tscn" id="4_0v8qm"]
 [ext_resource type="Script" path="res://CurveControl.gd" id="5_nyvm8"]
 [ext_resource type="PackedScene" uid="uid://cwsu1pmu0hkbh" path="res://Field.blend" id="6_2cl2j"]
 [ext_resource type="Script" path="res://MovingBot.gd" id="7_g68l7"]
+
+[sub_resource type="Animation" id="Animation_qhlin"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6tml2"]
+resource_name = "fade"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 1.5, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 1.5, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 1.5, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 1.5, 3)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6lmx"]
+_data = {
+"RESET": SubResource("Animation_qhlin"),
+"fade": SubResource("Animation_6tml2")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hcqjj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,6 +169,8 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve3D" id="Curve3D_wgsjr"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_aroxe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xcc6q"]
@@ -51,6 +179,36 @@ size = Vector3(0.2, 0.2, 0.5)
 [node name="Node3D" type="Node3D"]
 
 [node name="settings" parent="." instance=ExtResource("4_0v8qm")]
+
+[node name="LineEdit" type="LineEdit" parent="settings"]
+visible = false
+layout_mode = 0
+offset_left = 502.0
+offset_top = 309.0
+offset_right = 779.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Input Number"
+alignment = 1
+select_all_on_focus = true
+script = ExtResource("2_gphg1")
+
+[node name="CopiedNotif" type="RichTextLabel" parent="settings"]
+visible = false
+layout_mode = 0
+offset_left = 308.0
+offset_top = 172.0
+offset_right = 948.0
+offset_bottom = 532.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Code copied to clipboard!"
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="settings/CopiedNotif"]
+libraries = {
+"": SubResource("AnimationLibrary_t6lmx")
+}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p83l1")
@@ -87,22 +245,6 @@ mesh = SubResource("BoxMesh_eeb4p")
 curve = SubResource("Curve3D_enq53")
 script = ExtResource("5_nyvm8")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999996, 0, 0, 0, 0.999984, 0, 0, 0, 0.999995, 0, 4.67, 0)
-rotation_mode = 0
-use_model_front = true
-cubic_interp = false
-
-[node name="MovingBot" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, 0, 0, 0)
-mesh = SubResource("BoxMesh_aroxe")
-skeleton = NodePath("../../..")
-script = ExtResource("7_g68l7")
-
-[node name="Front" type="MeshInstance3D" parent="Path3D/PathFollow3D/MovingBot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-mesh = SubResource("BoxMesh_xcc6q")
-
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
 polygon = PackedVector2Array(0.02, 0, 0.014, -0.014, 0, -0.02, -0.014, -0.014, -0.02, 0, -0.014, 0.014, 0, 0.02, 0.014, 0.014)
 mode = 2
@@ -117,4 +259,27 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Field" parent="." instance=ExtResource("6_2cl2j")]
-transform = Transform3D(3.275, 0, 0, 0, 3.275, 0, 0, 0, 3.275, 5.9892, -0.0869989, 5.98893)
+transform = Transform3D(3.275, 0, 0, 0, 3.275, 0, 0, 0, 3.275, 5.9892, -0.070402, 5.98893)
+
+[node name="PathParts" type="Path3D" parent="."]
+curve = SubResource("Curve3D_wgsjr")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="PathParts"]
+transform = Transform3D(0.999996, 0, 0, 0, 0.999984, 0, 0, 0, 0.999995, 0, 0, 0)
+rotation_mode = 0
+use_model_front = true
+cubic_interp = false
+
+[node name="MovingBot" type="MeshInstance3D" parent="PathParts/PathFollow3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37116e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_aroxe")
+skeleton = NodePath("../../..")
+script = ExtResource("7_g68l7")
+
+[node name="Front" type="MeshInstance3D" parent="PathParts/PathFollow3D/MovingBot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_xcc6q")
+
+[connection signal="mouse_entered" from="settings/LineEdit" to="settings/LineEdit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="settings/LineEdit" to="settings/LineEdit" method="_on_mouse_exited"]
+[connection signal="text_submitted" from="settings/LineEdit" to="settings/LineEdit" method="_on_text_submitted"]

@@ -1,34 +1,69 @@
 extends MeshInstance3D
 
 @onready var ghostBlock = $"../../../ghostBox"
+@onready var curve = $"../.."
+@onready var fullCurve = $"../../../Path3D"
 
 var progress
+var pathSection
+
+var showingPreview = false
+
+var speed = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	progress = 0
 	visible = false
+	pathSection = 0
+	curve = curve.curve
+	fullCurve = fullCurve.curve
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	speed = global.speedSlider
+	global.isPreviewing = showingPreview
 	
-	if Input.is_action_just_pressed("ui_q"):
-		self.scale = ghostBlock.scale
-		self.visible = true
-		progress = 0
-	if Input.is_action_just_released("ui_q"):
-		self.visible = false
-	progress += 0.3 * delta
-	self.position.y = ghostBlock.scale.y/2
-	get_parent().progress_ratio = progress
-	
-	if len(global.botOrder) > 1:
-		var currentRot = int(get_parent().progress_ratio/(1.0/(len(global.botOrder)-1)))
-		if currentRot+1 != len(global.botOrder):
-			var currentBotRotY = global.botOrder[currentRot].rotation.y
-			var currentBotSecondRotY = global.botOrder[currentRot+1].rotation.y
-			if abs(currentBotRotY-currentBotSecondRotY) < abs (currentBotRotY - (global.botOrder[currentRot+1].rotation.y-2*PI)):
-				self.rotation.y = lerp(currentBotRotY,currentBotSecondRotY,(get_parent().progress_ratio*(len(global.botOrder)-1))-int(get_parent().progress_ratio*(len(global.botOrder)-1)))
+	if Input.is_action_just_pressed("ui_q") and len(global.botOrder) >= 2:
+		if showingPreview:
+			self.visible = false
+			showingPreview = false
+		else:
+			self.scale = ghostBlock.scale
+			self.visible = true
+			progress = 0
+			showingPreview = true
+			
+	if showingPreview:
+		if len(global.botOrder) < 2:
+			showingPreview = false
+			self.visible = false
+		
+		progress += speed * delta
+		self.position.y = ghostBlock.scale.y/2
+		get_parent().progress_ratio = progress
+		
+		if len(global.botOrder) > 1:
+			curve.clear_points()
+			if progress >=0.999:
+				if pathSection != len(global.botOrder)-2:
+					pathSection += 1
+				else:
+					pathSection = 0
+				progress = 0
+			curve.add_point(fullCurve.get_point_position(pathSection),fullCurve.get_point_in(pathSection), fullCurve.get_point_out(pathSection))
+			curve.add_point(fullCurve.get_point_position(pathSection+1),fullCurve.get_point_in(pathSection+1), fullCurve.get_point_out(pathSection+1))
+			
+			var currentBotRotation = global.botOrder[pathSection].rotation.y
+			var secondBotRotation = global.botOrder[pathSection+1].rotation.y
+			var secondBotRotPlus = global.botOrder[pathSection+1].rotation.y + 2 * PI
+			var secondBotRotMinus = global.botOrder[pathSection+1].rotation.y - 2 * PI
+			var minSecondsBotRot = min(abs(currentBotRotation-secondBotRotation),abs(currentBotRotation-secondBotRotMinus),abs(currentBotRotation-secondBotRotPlus))
+			
+			if minSecondsBotRot == abs(currentBotRotation-secondBotRotation):
+				self.rotation.y = lerp(currentBotRotation,secondBotRotation, progress)
+			elif minSecondsBotRot == abs(currentBotRotation-secondBotRotMinus):
+				self.rotation.y = lerp(currentBotRotation,secondBotRotMinus, progress)
 			else:
-				self.rotation.y = lerp(currentBotRotY,global.botOrder[currentRot+1].rotation.y - 2*PI,(get_parent().progress_ratio*(len(global.botOrder)-1))-int(get_parent().progress_ratio*(len(global.botOrder)-1)))
+				self.rotation.y = lerp(currentBotRotation,secondBotRotPlus, progress)

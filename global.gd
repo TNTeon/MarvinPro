@@ -10,11 +10,27 @@ var camera
 
 var numBotsCreated
 
+var hoveringGUI = false
+
+var snappedInches = 12
+
+var resetColors = false
+
+var DontMoveCam = true
+
+var isPreviewing = false
+
+var textInput
+
+var usingTextEdit
+
+var speedSlider = 0.5
+
+var invisBots = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numBotsCreated = 0
-	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,3 +47,9 @@ func _process(delta):
 		if rayArrary.has("position"):
 			currentMousePos = rayArrary["position"]
 			currentObj = rayArrary["collider"]
+			
+	if resetColors:
+		numBotsCreated = len(botOrder)
+	
+	if Input.is_action_just_pressed("ui_i"):
+		invisBots = !invisBots
