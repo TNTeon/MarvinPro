@@ -93,3 +93,6 @@ func _process(delta):
 		
 func setConnection(connectedList):
 	connectedListItem = connectedList
+	
+func stopFirstClick():
+	firstClick = false

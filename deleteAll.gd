@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_r"):
+	if Input.is_action_just_pressed("ui_r") and !global.hoveringGUI:
 		self.visible = true
 	if self.visible == true:	
 		global.hoveringGUI = true

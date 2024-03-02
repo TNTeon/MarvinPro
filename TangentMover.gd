@@ -21,7 +21,6 @@ func _process(delta):
 			self.rotation.y = snapped(self.rotation.y,PI/8)
 	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		startRotatingRed = false
-		
 	if (Input.is_action_just_pressed("ui_mouse_right") or Input.is_action_just_pressed("ui_mouse_left")) and global.currentObj == find_child("Colision2") and !global.hoveringGUI:
 		startRotatingBlack = true
 	if startRotatingBlack:

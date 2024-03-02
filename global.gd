@@ -28,6 +28,8 @@ var speedSlider = 0.5
 
 var invisBots = false
 
+var loadingFile = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numBotsCreated = 0
@@ -51,5 +53,5 @@ func _process(delta):
 	if resetColors:
 		numBotsCreated = len(botOrder)
 	
-	if Input.is_action_just_pressed("ui_i"):
+	if Input.is_action_just_pressed("ui_i") and (!hoveringGUI or isPreviewing):
 		invisBots = !invisBots

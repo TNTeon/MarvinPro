@@ -858,7 +858,7 @@ text = "The sidebar offers various tools while making your trajectories."
 fit_content = true
 
 [node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 texture = ExtResource("14_5h0x3")
 expand_mode = 1
@@ -880,7 +880,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Dimentions:"
+text = "Bot Dimentions:"
 fit_content = true
 
 [node name="DoubleIndent" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
@@ -1017,6 +1017,86 @@ theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "Reset colors of robots to reset gradient (Red-Purple) in order of movement. 
 When set to off, the robots will remain with the color they are created with."
+fit_content = true
+
+[node name="Indent20" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent20"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ExplainText" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent20"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = SubResource("Theme_ss0b6")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Save File:"
+fit_content = true
+
+[node name="DoubleIndent5" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent5"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ExplainText" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent5"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = SubResource("Theme_ss0b6")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "Opens a file dialogue. Choose a directory and input a file name, then click \"save.\" Pressing \"Control C\" will now save a .yaml with the current path. The file will be overwritten every time this button combination is pressed. You can make a new file at any time by re-clicking the button and setting a new save path.
+
+Important note: These files are compatable with Road Runner GUI. For more accurate simulation, load these files into RR-GUI."
+fit_content = true
+
+[node name="Indent21" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent21"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ExplainText" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent21"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = SubResource("Theme_ss0b6")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Load Files:"
+fit_content = true
+
+[node name="DoubleIndent6" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent6"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ExplainText" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent6"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = SubResource("Theme_ss0b6")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "Opens a file dialogue. Load any .yaml file by double clicking the file. DELETES CURRENT PATH!
+
+Important note: Compatable with Road Runner GUI files."
 fit_content = true
 
 [node name="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted" instance=ExtResource("6_uyi2y")]

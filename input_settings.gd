@@ -21,7 +21,8 @@ var input_actions = {
 	"ui_q": "View Preview",
 	"ui_i": "Toggle Bots Visiblity",
 	"ui_r": "Remove All Bots",
-	"ui_c": "Copy Path to Clipboard"
+	"ui_c": "Copy Path to Clipboard",
+	"save": "Save Shortcut"
 }
 
 var boundActions = []
@@ -44,7 +45,6 @@ func _load_saved_actions():
 					if data_received[item][0].contains("InputEventKey"):
 						var ev = InputEventKey.new()
 						ev.keycode = int(data_received[item][0])
-						print(ev)
 						InputMap.action_erase_events(item)
 						InputMap.action_add_event(item, ev)
 					else:

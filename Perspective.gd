@@ -6,7 +6,7 @@ const botScene = preload("res://bot.tscn")
 
 var PosA
 var RotA
-var orthoPos = Vector3(0,10,-1)
+var orthoPos = Vector3(0,10,-1.2)
 var orthoRot = Vector3(-3.14/2,0,0)
 var t = 1
 var currentPersective = true
@@ -78,7 +78,7 @@ func placeBox():
 				ghostBox.position.z = snapped(newPos.z,global.snappedInches/12.0)
 			else:
 				ghostBox.position = rayArrary["position"] + Vector3(0,ghostBox.scale.y/2,0)
-			if Input.is_action_just_pressed("ui_mouse_left") && !global.hoveringGUI:#EDITED THIS: Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+			if Input.is_action_just_pressed("ui_mouse_left") and !global.hoveringGUI and !global.loadingFile:#EDITED THIS: Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 				if !mouseHeld:
 					var instanceBot = botScene.instantiate()
 					instanceBot.position = ghostBox.position

@@ -123,3 +123,11 @@ func _on_fold_in_button_mouse_entered():
 func _on_fold_in_button_mouse_exited():
 	global.hoveringGUI = false
 
+
+
+func _on_export_rr_button_mouse_entered():
+	global.hoveringGUI = true
+
+
+func _on_export_rr_button_mouse_exited():
+	global.hoveringGUI = false
