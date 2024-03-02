@@ -595,7 +595,7 @@ layout_mode = 0
 offset_left = -182.0
 offset_top = 3.0
 offset_right = -14.0
-offset_bottom = 326.0
+offset_bottom = 457.0
 mouse_filter = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -604,9 +604,10 @@ script = ExtResource("1_s147x")
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = -161.0
 offset_top = 21.0
-offset_right = -43.0
+offset_right = -11.0
 offset_bottom = 50.0
-text = "Dimentions:"
+theme_override_font_sizes/normal_font_size = 0
+text = "Bot Dimensions:"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 23.0
@@ -628,6 +629,13 @@ offset_top = 283.0
 offset_right = -43.0
 offset_bottom = 312.0
 text = "Update Colors:"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = -161.0
+offset_top = 340.0
+offset_right = -43.0
+offset_bottom = 369.0
+text = "Export RR-GUI"
 
 [node name="WidthSelection" type="SpinBox" parent="CanvasLayer"]
 offset_left = -138.0
@@ -684,6 +692,16 @@ offset_bottom = 365.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rkak4")
 script = ExtResource("2_1e2bm")
+
+[node name="MouseStuff" type="Control" parent="CanvasLayer"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 198.0
+offset_top = 23.0
+offset_right = 1071.0
+offset_bottom = 146.0
+mouse_filter = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer"]
 z_index = -2
@@ -764,6 +782,10 @@ scale = Vector2(0.02, 0.02)
 pivot_offset = Vector2(600, 600)
 texture_normal = ExtResource("5_ogvkf")
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel2")
 libraries = {
@@ -780,6 +802,8 @@ libraries = {
 [connection signal="value_changed" from="CanvasLayer/HeightSelection" to="CanvasLayer" method="_on_height_selection_value_changed"]
 [connection signal="mouse_entered" from="CanvasLayer/SnappedSelection" to="CanvasLayer" method="_on_snapped_selection_mouse_entered"]
 [connection signal="value_changed" from="CanvasLayer/SnappedSelection" to="CanvasLayer" method="_on_snapped_selection_value_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/MouseStuff" to="CanvasLayer" method="_on_mouse_stuff_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MouseStuff" to="CanvasLayer" method="_on_mouse_stuff_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/ScrollContainer" to="CanvasLayer" method="_on_scroll_container_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ScrollContainer" to="CanvasLayer" method="_on_scroll_container_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/CheckButton" to="CanvasLayer" method="_on_check_button_mouse_entered"]

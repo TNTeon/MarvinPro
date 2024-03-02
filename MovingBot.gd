@@ -29,6 +29,8 @@ func _process(delta):
 		if showingPreview:
 			self.visible = false
 			showingPreview = false
+			global.hoveringGUI = false
+			pathSection = 0
 		else:
 			self.scale = ghostBlock.scale
 			self.visible = true
@@ -39,10 +41,12 @@ func _process(delta):
 		if len(global.botOrder) < 2:
 			showingPreview = false
 			self.visible = false
+		else:
+			global.hoveringGUI = true
+			
 		
 		progress += speed * delta
 		self.position.y = ghostBlock.scale.y/2
-		get_parent().progress_ratio = progress
 		
 		if len(global.botOrder) > 1:
 			curve.clear_points()
@@ -67,3 +71,4 @@ func _process(delta):
 				self.rotation.y = lerp(currentBotRotation,secondBotRotMinus, progress)
 			else:
 				self.rotation.y = lerp(currentBotRotation,secondBotRotPlus, progress)
+			get_parent().progress_ratio = progress

@@ -4,8 +4,11 @@ var foldedIn = false
 
 @onready var animationPlayer = $"../AnimationPlayer"
 
+var mouseOverSlider = false
+
 func _ready():
 	animationPlayer.play_backwards("foldAway")
+
 
 func _process(delta):
 	$WidthSelection.value = global.botDimentions.x
@@ -23,6 +26,7 @@ func _on_length_selection_value_changed(value):
 func _on_height_selection_value_changed(value):
 	global.botDimentions.y = value
 	
+
 	
 func _is_pos_in(checkpos:Vector2, gr):
 	gr = gr.get_global_rect()
@@ -38,6 +42,13 @@ func _input(event):
 		$SnappedSelection.get_line_edit().release_focus()
 	if event is InputEventMouseButton and not _is_pos_in(event.position,$CheckButton) or event.is_action_pressed("ui_accept"):
 		$CheckButton.release_focus()
+		
+	if event is InputEventMouse and _is_pos_in(event.position,$MouseStuff):
+		global.hoveringGUI = true
+		mouseOverSlider = true
+	elif mouseOverSlider == true:
+		global.hoveringGUI = false
+		mouseOverSlider = false
 
 
 func _on_scroll_container_mouse_entered():
@@ -111,3 +122,4 @@ func _on_fold_in_button_mouse_entered():
 
 func _on_fold_in_button_mouse_exited():
 	global.hoveringGUI = false
+

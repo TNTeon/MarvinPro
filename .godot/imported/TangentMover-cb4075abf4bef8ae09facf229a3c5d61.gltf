@@ -42,40 +42,48 @@
 		},
 		{
 			"extras":{
-				"scatter5":{
-					"estimated_square_area":12.46568775177002
-				}
+				"scatter5":{}
 			},
 			"mesh":1,
 			"name":"Sphere",
+			"rotation":[
+				-0.5000000596046448,
+				0.5,
+				-0.4999999403953552,
+				0.5000000596046448
+			],
 			"scale":[
-				0.39766600728034973,
-				0.39766573905944824,
-				0.39766573905944824
+				0.4125911593437195,
+				0.4125911593437195,
+				0.4125911593437195
 			],
 			"translation":[
 				0,
 				0,
-				-2.5891618728637695
+				-2.6080164909362793
 			]
 		},
 		{
 			"extras":{
-				"scatter5":{
-					"estimated_square_area":12.46568775177002
-				}
+				"scatter5":{}
 			},
 			"mesh":2,
 			"name":"Sphere.001",
+			"rotation":[
+				-0.5000000596046448,
+				0.5,
+				-0.4999999403953552,
+				0.5000000596046448
+			],
 			"scale":[
-				0.39766600728034973,
-				0.39766600728034973,
-				0.39766600728034973
+				0.4125911593437195,
+				0.4125911593437195,
+				0.4125911593437195
 			],
 			"translation":[
 				0,
 				0,
-				2.5891618728637695
+				2.609555244445801
 			]
 		}
 	],
@@ -139,31 +147,29 @@
 			]
 		},
 		{
-			"name":"Sphere",
+			"name":"Cone",
 			"primitives":[
 				{
 					"attributes":{
 						"POSITION":4,
 						"TEXCOORD_0":5,
-						"NORMAL":6,
-						"TANGENT":7
+						"NORMAL":6
 					},
-					"indices":8,
+					"indices":7,
 					"material":1
 				}
 			]
 		},
 		{
-			"name":"Sphere.001",
+			"name":"Cone.001",
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":9,
-						"TEXCOORD_0":10,
-						"NORMAL":11,
-						"TANGENT":12
+						"POSITION":8,
+						"TEXCOORD_0":9,
+						"NORMAL":10
 					},
-					"indices":8,
+					"indices":7,
 					"material":2
 				}
 			]
@@ -207,14 +213,14 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":559,
+			"count":128,
 			"max":[
-				0.9999997019767761,
 				1,
-				0.9999993443489075
+				1,
+				1
 			],
 			"min":[
-				-0.9999990463256836,
+				-1,
 				-1,
 				-1
 			],
@@ -223,60 +229,48 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":559,
+			"count":128,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":559,
+			"count":128,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":7,
-			"componentType":5126,
-			"count":559,
-			"type":"VEC4"
-		},
-		{
-			"bufferView":8,
 			"componentType":5123,
-			"count":2880,
+			"count":186,
 			"type":"SCALAR"
 		},
 		{
-			"bufferView":9,
+			"bufferView":8,
 			"componentType":5126,
-			"count":559,
+			"count":128,
 			"max":[
-				0.9999997019767761,
 				1,
-				0.9999993443489075
+				1,
+				1
 			],
 			"min":[
-				-0.9999990463256836,
+				-1,
 				-1,
 				-1
 			],
 			"type":"VEC3"
 		},
 		{
-			"bufferView":10,
+			"bufferView":9,
 			"componentType":5126,
-			"count":559,
+			"count":128,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":11,
+			"bufferView":10,
 			"componentType":5126,
-			"count":559,
+			"count":128,
 			"type":"VEC3"
-		},
-		{
-			"bufferView":12,
-			"componentType":5126,
-			"count":559,
-			"type":"VEC4"
 		}
 	],
 	"bufferViews":[
@@ -306,62 +300,50 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":6708,
+			"byteLength":1536,
 			"byteOffset":4904,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4472,
-			"byteOffset":11612,
+			"byteLength":1024,
+			"byteOffset":6440,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6708,
-			"byteOffset":16084,
+			"byteLength":1536,
+			"byteOffset":7464,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":8944,
-			"byteOffset":22792,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":5760,
-			"byteOffset":31736,
+			"byteLength":372,
+			"byteOffset":9000,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":6708,
-			"byteOffset":37496,
+			"byteLength":1536,
+			"byteOffset":9372,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4472,
-			"byteOffset":44204,
+			"byteLength":1024,
+			"byteOffset":10908,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6708,
-			"byteOffset":48676,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":8944,
-			"byteOffset":55384,
+			"byteLength":1536,
+			"byteOffset":11932,
 			"target":34962
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":64328,
+			"byteLength":13468,
 			"uri":"TangentMover-cb4075abf4bef8ae09facf229a3c5d61.bin"
 		}
 	]

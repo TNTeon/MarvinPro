@@ -11,12 +11,17 @@ extends Button
 @onready var animationPlrSeek = $"../AnimationPlayerSeek"
 @onready var animationPlrButton = $"../AnimationPlayerButton"
 
+@export var gradient: Gradient
+
 var parent
 var connectedBot
+var connectedBotOutline
+var outlineLerpT = 0
+var timeSinceStart = 0
+var speedOfOutline = 0.05
 
 func _ready():
 	animationPlrButton.play("RESETLeft")
-	visibleButtons(false)
 	backBut.visible = false
 	forwardBut.visible = false
 	xCord.visible = false
@@ -26,6 +31,10 @@ func _ready():
 	parent = get_parent()
 	connectedBot = get_node(parent.get_meta("conntectedBot"))
 	connectedBot.setConnection(self)
+	connectedBotOutline = connectedBot.find_child("Outline")
+	var unique_mat = connectedBotOutline.get_active_material(0).duplicate()
+	connectedBotOutline.set_surface_override_material(0, unique_mat)
+	visibleButtons(false)
 	
 	backBut.set_material(backBut.get_material().duplicate(true))
 	forwardBut.set_material(backBut.get_material().duplicate(true))
@@ -55,7 +64,7 @@ func _is_pos_in(checkpos:Vector2, gr):
 	return checkpos.x>=gr.position.x and checkpos.y>=gr.position.y and checkpos.x<gr.end.x and checkpos.y<gr.end.y
 
 func _input(event):
-	if (event is InputEventMouseButton and not _is_pos_in(event.position,self) and not _is_pos_in(event.position,xCord) and not _is_pos_in(event.position,yCord) and not _is_pos_in(event.position,tan) and not _is_pos_in(event.position,heading) and (Input.is_action_just_released("ui_mouse_left") or Input.is_action_just_released("ui_mouse_right"))) or Input.is_action_just_pressed("ui_esc"):
+	if (event is InputEventMouseButton and xCord.visible and not _is_pos_in(event.position,self) and not _is_pos_in(event.position,xCord) and not _is_pos_in(event.position,yCord) and not _is_pos_in(event.position,tan) and not _is_pos_in(event.position,heading) and (Input.is_action_just_released("ui_mouse_left") or Input.is_action_just_released("ui_mouse_right"))) or Input.is_action_just_pressed("ui_esc"):
 		self.visible = false
 		self.visible = true
 		visibleButtons(false)
@@ -113,7 +122,17 @@ func _process(delta):
 		backBut.visible = false
 	if currentListPos == len(global.botOrder)-1:
 		forwardBut.visible = false
-
+		
+	timeSinceStart +=delta
+	connectedBotOutline.get_active_material(0).albedo_color = gradient.sample((timeSinceStart*speedOfOutline - int(timeSinceStart * speedOfOutline)))
+	if outlineLerpT <= 1 and (!xCord.visible or animationPlrSeek.current_animation == "buttonSlideIn"):
+		outlineLerpT -= delta*5
+		outlineLerpT = max(0,outlineLerpT)
+		connectedBotOutline.get_active_material(0).albedo_color.a = outlineLerpT
+	elif outlineLerpT >= 0 and xCord.visible:
+		outlineLerpT += delta *5
+		outlineLerpT = min(1,outlineLerpT)
+		connectedBotOutline.get_active_material(0).albedo_color.a = outlineLerpT
 func _on_x_cord_pressed():
 	newTextInput(xCord)
 	
@@ -154,7 +173,6 @@ func updateHues(hue):
 	
 
 func _on_animation_player_button_animation_finished(anim_name):
-	print(str(global.botOrder.find(connectedBot)) + anim_name)
 	if anim_name == "moveButtonRight":
 		animationPlrButton.play("RESET")
 	if anim_name == "moveButtonLeft":

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ch8eiplk7iqaq"]
+[gd_scene load_steps=15 format=3 uid="uid://ch8eiplk7iqaq"]
 
 [ext_resource type="Script" path="res://bot.gd" id="1_7g7qg"]
 [ext_resource type="PackedScene" uid="uid://txwcakpkje0a" path="res://TangentMover.blend" id="2_x8at5"]
 [ext_resource type="Script" path="res://TangentMover.gd" id="3_dkkao"]
+[ext_resource type="Script" path="res://Label3D.gd" id="4_nfrdk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sby2n"]
 resource_local_to_scene = true
@@ -32,6 +33,14 @@ size = Vector3(0.2, 0.2, 0.5)
 
 [sub_resource type="SphereMesh" id="SphereMesh_vdtvm"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2hj0"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.737255)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vk8vs"]
+material = SubResource("StandardMaterial3D_b2hj0")
+size = Vector3(1.1, 1.1, 1.1)
+
 [node name="botBody" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_3lrs2")
 script = ExtResource("1_7g7qg")
@@ -53,26 +62,24 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = ExtResource("3_dkkao")
 
 [node name="Colision1" type="StaticBody3D" parent="TangentMover"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.59004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.59895)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TangentMover/Colision1"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 shape = SubResource("SphereShape3D_l28q8")
 
 [node name="Colision2" type="StaticBody3D" parent="TangentMover"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.58836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75517)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TangentMover/Colision2"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 shape = SubResource("SphereShape3D_l28q8")
 
 [node name="ForwardTan" type="MeshInstance3D" parent="TangentMover"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 visible = false
 mesh = SubResource("SphereMesh_vdtvm")
 
 [node name="BackTan" type="MeshInstance3D" parent="TangentMover"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 visible = false
 mesh = SubResource("SphereMesh_vdtvm")
 
@@ -80,3 +87,15 @@ mesh = SubResource("SphereMesh_vdtvm")
 remote_path = NodePath("../TangentMover")
 update_rotation = false
 update_scale = false
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+sorting_offset = -1.0
+mesh = SubResource("BoxMesh_vk8vs")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
+top_level = true
+sorting_offset = 1.0
+pixel_size = 0.015
+text = "1"
+script = ExtResource("4_nfrdk")

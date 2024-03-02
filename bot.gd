@@ -24,7 +24,6 @@ func _ready():
 	instance.set_meta("conntectedBot", get_path())
 	listBotContainer.add_child(instance)
 	set_meta("connectedListBot",instance.get_path())
-	
 
 func _process(delta):
 	

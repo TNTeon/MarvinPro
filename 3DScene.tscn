@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://wn0ufqdo7dwj"]
+[gd_scene load_steps=25 format=3 uid="uid://wn0ufqdo7dwj"]
 
 [ext_resource type="Texture2D" uid="uid://bsdjk32xweudv" path="res://custom-centerstage-field-diagrams-works-with-meepmeep-v0-osvn5chufpob1.png" id="1_l1ipg"]
 [ext_resource type="Script" path="res://Camera.gd" id="1_to163"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://CurveControl.gd" id="5_nyvm8"]
 [ext_resource type="PackedScene" uid="uid://cwsu1pmu0hkbh" path="res://Field.blend" id="6_2cl2j"]
 [ext_resource type="Script" path="res://MovingBot.gd" id="7_g68l7"]
+[ext_resource type="PackedScene" uid="uid://cs528w5hgukl8" path="res://Instuctions.tscn" id="9_oar3f"]
 
 [sub_resource type="Animation" id="Animation_qhlin"]
 length = 0.001
@@ -209,6 +210,8 @@ text = "[center]Code copied to clipboard!"
 libraries = {
 "": SubResource("AnimationLibrary_t6lmx")
 }
+
+[node name="Control" parent="." instance=ExtResource("9_oar3f")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p83l1")
