@@ -296,6 +296,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Heading" type="PanelContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_v70vw")
@@ -322,6 +323,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Controls" type="PanelContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_v70vw")
@@ -430,6 +432,7 @@ text = "Ctrl+Y"
 layout_mode = 2
 
 [node name="Intro" type="PanelContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_v70vw")
@@ -479,6 +482,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_v70vw")
 layout_mode = 2
 
 [node name="Ttitle" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
@@ -488,6 +492,7 @@ bbcode_enabled = true
 text = " Getting Started:"
 
 [node name="CameraViews" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
@@ -497,6 +502,7 @@ text = "  Camera Views:"
 fit_content = true
 
 [node name="Indent" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent"]
@@ -516,6 +522,7 @@ text = "Marvin allows you to create trajectories from two different views:"
 fit_content = true
 
 [node name="Indent3" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent3"]
@@ -536,6 +543,7 @@ This is probably the most intuitive way to make a trajectory. Everything is seen
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("6_3rbi3")
@@ -543,6 +551,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent2" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent2"]
@@ -571,6 +580,7 @@ This view is harder to navigate, but it allows for a 3D view of the field and ro
 fit_content = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("7_x5cab")
@@ -578,6 +588,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent4" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent4"]
@@ -597,6 +608,7 @@ text = "Moving in Perspective view:"
 fit_content = true
 
 [node name="Indent5" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent5"]
@@ -615,6 +627,7 @@ text = "Moving in the perspective view can be initiated with the Control key by 
 fit_content = true
 
 [node name="PlacingBots" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
@@ -624,6 +637,7 @@ text = " Placing Bots:"
 fit_content = true
 
 [node name="Indent17" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent17"]
@@ -643,6 +657,7 @@ text = "Important note: Hold shift while editing position/rotation to snap the m
 fit_content = true
 
 [node name="Indent6" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent6"]
@@ -662,6 +677,7 @@ text = "To place a bot position of the field, left click anywhere the red \"ghos
 fit_content = true
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("8_u6lfk")
@@ -669,6 +685,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent7" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent7"]
@@ -688,6 +705,7 @@ text = "Before letting go of the left click, you can change the heading of the b
 fit_content = true
 
 [node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture = ExtResource("9_vlj66")
@@ -695,6 +713,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent8" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent8"]
@@ -718,6 +737,7 @@ You can also edit the tangent which will effect the direction your bot move away
 fit_content = true
 
 [node name="Indent9" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent9"]
@@ -738,6 +758,7 @@ The image below demonstrates how the tangent effects the trajectory. The red tan
 fit_content = true
 
 [node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 texture = ExtResource("10_1nf1n")
@@ -745,6 +766,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="BotOrder" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
@@ -754,6 +776,7 @@ text = " Bot Order and Control Buttons:"
 fit_content = true
 
 [node name="Indent10" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent10"]
@@ -773,6 +796,7 @@ text = "The order in which each position is played can be seen by the GUI demons
 fit_content = true
 
 [node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture = ExtResource("11_1fl74")
@@ -780,6 +804,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent11" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent11"]
@@ -801,6 +826,7 @@ It is possible to change this order. To do this, click on the color that matches
 fit_content = true
 
 [node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture = ExtResource("12_p5tqm")
@@ -808,6 +834,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent12" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent12"]
@@ -827,6 +854,7 @@ text = "When you click on one of these buttons, it will also open up controls fo
 fit_content = true
 
 [node name="TextureRect8" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture = ExtResource("13_grn1t")
@@ -834,6 +862,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent13" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent13"]
@@ -853,6 +882,7 @@ text = "Lastly, you can delete the bot by clicking the large X."
 fit_content = true
 
 [node name="PlacingBots2" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
@@ -862,6 +892,7 @@ text = " Sidebar tools:"
 fit_content = true
 
 [node name="Indent14" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent14"]
@@ -881,6 +912,7 @@ text = "The sidebar offers various tools while making your trajectories."
 fit_content = true
 
 [node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 texture = ExtResource("14_5h0x3")
@@ -950,6 +982,7 @@ text = "Grid Snap:"
 fit_content = true
 
 [node name="DoubleIndent2" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent2"]
@@ -969,6 +1002,7 @@ text = "When holding shift, the robot will snap to the specified amount of inche
 fit_content = true
 
 [node name="Indent18" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent18"]
@@ -1082,7 +1116,7 @@ theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
 text = "Opens a file dialogue. Choose a directory and input a file name, then click \"save.\" Pressing \"Ctrl+C\" will now save a .yaml with the current path. The file will be overwritten every time this button combination is pressed. You can make a new file at any time by re-clicking the button and setting a new save path.
 
-Important note: These files are compatable with Road Runner GUI. For more accurate simulation, load these files into RR-GUI."
+Important note: These files are compatable with Road Runner GUI. To use Road Runner's simulation, load these files into RR-GUI."
 fit_content = true
 
 [node name="Indent21" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
