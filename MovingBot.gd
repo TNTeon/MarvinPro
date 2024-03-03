@@ -18,6 +18,8 @@ func _ready():
 	pathSection = 0
 	curve = curve.curve
 	fullCurve = fullCurve.curve
+	
+	global.previewBot = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,3 +74,8 @@ func _process(delta):
 			else:
 				self.rotation.y = lerp(currentBotRotation,secondBotRotPlus, progress)
 			get_parent().progress_ratio = progress
+func stopPreview():
+	self.visible = false
+	showingPreview = false
+	global.hoveringGUI = false
+	pathSection = 0

@@ -83,6 +83,9 @@ func _on_forward_but_pressed():
 	
 
 func _on_delete_but_pressed():
+	var botPos = connectedBot.position
+	ControlZ.actions.append(["Deleted",botPos.x,botPos.z,connectedBot.rotation.y, connectedBot.find_child("TangentMover").rotation.y, global.botOrder.find(connectedBot),connectedBot.returnOrder()])
+	ControlZ.resetRedo()
 	global.botOrder.remove_at(global.botOrder.find(connectedBot))
 	connectedBot.queue_free()
 	get_parent().queue_free()
@@ -155,15 +158,23 @@ func newTextInput(obj):
 func updateValues():
 	if global.usingTextEdit == xCord:
 		if float(xCord.text) != 0 or xCord.text == "0":
+			ControlZ.resetRedo()
+			ControlZ.actions.append(["posChanged",connectedBot.position.x,connectedBot.position.z,connectedBot.rotation.y,connectedBot.find_child("TangentMover").rotation.y,global.botOrder.find(connectedBot)])
 			connectedBot.position.z = -float(xCord.text)/12.0
 	if global.usingTextEdit == yCord:
 		if float(yCord.text) != 0 or yCord.text == "0":
+			ControlZ.resetRedo()
+			ControlZ.actions.append(["posChanged",connectedBot.position.x,connectedBot.position.z,connectedBot.rotation.y,connectedBot.find_child("TangentMover").rotation.y,global.botOrder.find(connectedBot)])
 			connectedBot.position.x = -float(yCord.text)/12.0
 	if global.usingTextEdit == tan:
 		if float(tan.text) != 0 or tan.text == "0":
+			ControlZ.resetRedo()
+			ControlZ.actions.append(["posChanged",connectedBot.position.x,connectedBot.position.z,connectedBot.rotation.y,connectedBot.find_child("TangentMover").rotation.y,global.botOrder.find(connectedBot)])
 			connectedBot.find_child("TangentMover").rotation.y = deg_to_rad(float(tan.text))
 	if global.usingTextEdit == heading:
 		if float(heading.text) != 0 or heading.text == "0":
+			ControlZ.resetRedo()
+			ControlZ.actions.append(["posChanged",connectedBot.position.x,connectedBot.position.z,connectedBot.rotation.y,connectedBot.find_child("TangentMover").rotation.y,global.botOrder.find(connectedBot)])
 			connectedBot.rotation.y = deg_to_rad(float(heading.text))
 	global.usingTextEdit = null
 
@@ -179,4 +190,8 @@ func _on_animation_player_button_animation_finished(anim_name):
 		animationPlrButton.play("RESETLeft")
 	if anim_name == "RESET":
 		var tempPos = global.botOrder.find(connectedBot)
+		ControlZ.resetRedo()
+		ControlZ.actions.append(["movedOrder",tempPos])
 		global.botOrder.insert(tempPos+1, global.botOrder.pop_at(tempPos))
+		ControlZ.actions[len(ControlZ.actions)-1].append(global.botOrder.find(connectedBot))
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsaieocvuwi64"]
+[gd_scene load_steps=13 format=3 uid="uid://bsaieocvuwi64"]
 
 [ext_resource type="Script" path="res://setGlobalDim.gd" id="1_s147x"]
 [ext_resource type="Script" path="res://crossHair.gd" id="2_1e2bm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dyuw4olu4jvkw" path="res://Eo_circle_blue_arrow-left.png" id="5_ogvkf"]
 [ext_resource type="Script" path="res://ExportRRButton.gd" id="6_rgegd"]
 [ext_resource type="Script" path="res://LoadFile.gd" id="7_emeb2"]
+[ext_resource type="Script" path="res://autoLoadPath.gd" id="8_qihtu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkak4"]
 bg_color = Color(1, 1, 1, 1)
@@ -380,6 +381,50 @@ tracks/32/keys = {
 "points": PackedFloat32Array(407, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/33/type = "bezier"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("../CanvasLayer/CheckButton2:position:x")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/34/type = "bezier"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../CanvasLayer/CheckButton2:position:y")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(503, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/35/type = "bezier"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("../CanvasLayer/RichTextLabel7:position:x")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/36/type = "bezier"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("../CanvasLayer/RichTextLabel7:position:y")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(474, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qotda"]
 resource_name = "foldAway"
@@ -747,6 +792,50 @@ tracks/32/keys = {
 "points": PackedFloat32Array(407, -0.25, 0, 0.25, 0, 407, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
+tracks/33/type = "bezier"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("../CanvasLayer/CheckButton2:position:x")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(59, -0.25, 0, 0.25, 0, -125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/34/type = "bezier"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("../CanvasLayer/CheckButton2:position:y")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(503, -0.25, 0, 0.25, 0, 503, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/35/type = "bezier"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("../CanvasLayer/RichTextLabel7:position:x")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/36/type = "bezier"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("../CanvasLayer/RichTextLabel7:position:y")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(474, -0.25, 0, 0.25, 0, 474, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yikym"]
 _data = {
@@ -773,7 +862,7 @@ layout_mode = 0
 offset_left = -182.0
 offset_top = 3.0
 offset_right = -14.0
-offset_bottom = 468.0
+offset_bottom = 544.0
 mouse_filter = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -814,6 +903,13 @@ offset_top = 340.0
 offset_right = -43.0
 offset_bottom = 369.0
 text = "Save File"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = -161.0
+offset_top = 474.0
+offset_right = -43.0
+offset_bottom = 503.0
+text = "Save On Exit"
 
 [node name="WidthSelection" type="SpinBox" parent="CanvasLayer"]
 offset_left = -138.0
@@ -1003,6 +1099,14 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 
+[node name="CheckButton2" type="CheckButton" parent="CanvasLayer"]
+offset_left = -125.0
+offset_top = 503.0
+offset_right = -74.0
+offset_bottom = 533.0
+mouse_filter = 1
+script = ExtResource("8_qihtu")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel2")
 libraries = {
@@ -1042,3 +1146,6 @@ libraries = {
 [connection signal="mouse_exited" from="CanvasLayer/LoadFileButton" to="CanvasLayer" method="_on_export_rr_button_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/LoadFileButton" to="CanvasLayer/LoadFileButton" method="_on_pressed"]
 [connection signal="file_selected" from="CanvasLayer/LoadFileButton/FileDialog" to="CanvasLayer/LoadFileButton" method="_on_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="CanvasLayer/CheckButton2" to="CanvasLayer" method="_on_check_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/CheckButton2" to="CanvasLayer" method="_on_check_button_2_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/CheckButton2" to="CanvasLayer/CheckButton2" method="_on_toggled"]

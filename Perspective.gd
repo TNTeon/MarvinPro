@@ -83,6 +83,9 @@ func placeBox():
 					var instanceBot = botScene.instantiate()
 					instanceBot.position = ghostBox.position
 					get_tree().get_root().add_child(instanceBot)
+					global.botOrder.append(instanceBot)
+					ControlZ.actions.append(["Created"])
+					ControlZ.resetRedo()
 			else:
 				mouseHeld = false
 	else:

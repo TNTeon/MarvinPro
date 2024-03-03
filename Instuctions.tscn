@@ -406,6 +406,26 @@ text = "Edit Bot Heading"
 [node name="LabelInputs" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton4/MarginContainer/HBoxContainer" index="3"]
 text = "Mouse Right Click"
 
+[node name="InputButton5" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2" instance=ExtResource("3_frumc")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mypsx")
+
+[node name="LabelAction" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton5/MarginContainer/HBoxContainer" index="1"]
+text = "Undo"
+
+[node name="LabelInputs" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton5/MarginContainer/HBoxContainer" index="3"]
+text = "Ctrl+Z"
+
+[node name="InputButton6" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2" instance=ExtResource("3_frumc")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mypsx")
+
+[node name="LabelAction" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton6/MarginContainer/HBoxContainer" index="1"]
+text = "Redo"
+
+[node name="LabelInputs" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton6/MarginContainer/HBoxContainer" index="3"]
+text = "Ctrl+Y"
+
 [node name="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls" instance=ExtResource("6_uyi2y")]
 layout_mode = 2
 
@@ -858,6 +878,7 @@ text = "The sidebar offers various tools while making your trajectories."
 fit_content = true
 
 [node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 texture = ExtResource("14_5h0x3")
@@ -1094,9 +1115,47 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
-text = "Opens a file dialogue. Load any .yaml file by double clicking the file. DELETES CURRENT PATH!
+text = "Opens a file dialogue. Load any .yaml file by double clicking the file. Deletes current path! Use Ctrl+z to bring back your path!
 
 Important note: Compatable with Road Runner GUI files."
+fit_content = true
+
+[node name="Indent22" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent22"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ExplainText" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent22"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = SubResource("Theme_ss0b6")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Save on Exit"
+fit_content = true
+
+[node name="DoubleIndent7" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent7"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ExplainText" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent7"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = SubResource("Theme_ss0b6")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "When enabled, the program will automatically save the current path when Marvin is closed. On launch, the file will be loaded up."
 fit_content = true
 
 [node name="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted" instance=ExtResource("6_uyi2y")]
@@ -1113,3 +1172,5 @@ libraries = {
 [editable path="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton2"]
 [editable path="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton3"]
 [editable path="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton4"]
+[editable path="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton5"]
+[editable path="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer/ActionsList2/InputButton6"]

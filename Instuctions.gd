@@ -1,8 +1,11 @@
 extends Control
 
+var showOnOpen = false
+
 func _ready():
+	$AnimationPlayer.play("RESET")
 	find_child("CanvasLayer").find_child("Panel").visible = true
-	$AnimationPlayer.play("start")
+	
 
 func _input(event):
 	if event is InputEventKey:
@@ -22,4 +25,10 @@ func _on_animation_player_animation_finished(anim_name):
 func _process(delta):
 	if find_child("CanvasLayer").find_child("Panel").visible:
 		global.hoveringGUI = true
+	if global.firstOpen and !showOnOpen:
+		$AnimationPlayer.play("start")
+		showOnOpen = true
+	elif !showOnOpen:
+		global.hoveringGUI = false
+		showOnOpen = true
 		

@@ -16,10 +16,7 @@ var listBotScene = load("res://list_bot.tscn")
 func _ready():
 	orderCreated = global.numBotsCreated
 	global.numBotsCreated += 1
-	global.botOrder.append(self)
 	self.mesh.material.albedo_color = gradient.sample(1.0/len(global.botOrder))
-		
-	
 	var instance = listBotScene.instantiate()
 	instance.set_meta("conntectedBot", get_path())
 	listBotContainer.add_child(instance)
@@ -77,9 +74,13 @@ func _process(delta):
 			startRotating = false
 		if global.currentObj != null and is_instance_valid(global.currentObj):
 			if Input.is_action_just_pressed("ui_mouse_right") and global.currentObj.get_parent() == self and !global.hoveringGUI:
+				ControlZ.actions.append(["posChanged",self.position.x,self.position.z,self.rotation.y,find_child("TangentMover").rotation.y,global.botOrder.find(self)])
 				startRotating = true
+				ControlZ.resetRedo()
 			if Input.is_action_just_pressed("ui_mouse_left") and global.currentObj.get_parent() == self and !global.hoveringGUI:
+				ControlZ.actions.append(["posChanged",self.position.x,self.position.z,self.rotation.y,find_child("TangentMover").rotation.y,global.botOrder.find(self)])
 				startMoving = true
+				ControlZ.resetRedo()
 		if startMoving:
 			self.get_child(0).get_child(0).disabled = true
 			var tempPos = global.currentMousePos
@@ -96,3 +97,8 @@ func setConnection(connectedList):
 	
 func stopFirstClick():
 	firstClick = false
+
+func returnOrder():
+	return orderCreated
+func setOrderCreated(order):
+	orderCreated = order

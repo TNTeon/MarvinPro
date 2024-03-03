@@ -12,6 +12,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_mouse_right") or Input.is_action_just_pressed("ui_mouse_left")) and global.currentObj == find_child("Colision1") and !global.hoveringGUI:
+		ControlZ.resetRedo()
+		ControlZ.actions.append(["posChanged",get_parent().position.x,get_parent().position.z,get_parent().rotation.y,self.rotation.y,global.botOrder.find(get_parent())])
 		startRotatingRed = true
 	if startRotatingRed:
 		var tempPos = global.currentMousePos
@@ -22,6 +24,8 @@ func _process(delta):
 	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		startRotatingRed = false
 	if (Input.is_action_just_pressed("ui_mouse_right") or Input.is_action_just_pressed("ui_mouse_left")) and global.currentObj == find_child("Colision2") and !global.hoveringGUI:
+		ControlZ.resetRedo()
+		ControlZ.actions.append(["posChanged",get_parent().position.x,get_parent().position.z,get_parent().rotation.y,self.rotation.y,global.botOrder.find(get_parent())])
 		startRotatingBlack = true
 	if startRotatingBlack:
 		var tempPos = global.currentMousePos

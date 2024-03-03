@@ -57,6 +57,7 @@ func _load_saved_actions():
 		else:
 			print("Not Here")
 	else:
+		global.firstOpen = true
 		print("missing and saving")
 		save()
 

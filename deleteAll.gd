@@ -15,6 +15,19 @@ func _process(delta):
 	
 
 func _on_yes_delete_but_pressed():
+	ControlZ.actions.append(["loadedFile"])
+	if !ControlZ.comingFromRedo:
+		ControlZ.resetRedo()
+	ControlZ.comingFromRedo = false
+	var saveControlZ = ControlZ.actions[len(ControlZ.actions)-1]
+	if ControlZ.loadFileString != "":
+		saveControlZ.append(ControlZ.loadFileString)
+		ControlZ.loadFileString = ""
+	else:
+		saveControlZ.append("")
+	for bot in global.botOrder:
+		saveControlZ.append([bot.position.x,bot.position.z,bot.rotation.y,bot.find_child("TangentMover").rotation.y,global.botOrder.find(bot),bot.returnOrder()])
+	
 	global.botOrder.clear()
 	global.invisBots = false
 	self.visible = false

@@ -30,6 +30,10 @@ var invisBots = false
 
 var loadingFile = false
 
+var previewBot
+
+var firstOpen = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numBotsCreated = 0
