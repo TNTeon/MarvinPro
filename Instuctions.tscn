@@ -311,7 +311,7 @@ theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "[center] Welcome to[font=res://Alphabet Soup.ttf] [font_size=60]Marvin[font=res://new_font_file.tres][font_size=20]
-Made by team: 16597
+Made by team: 16597 Fulminata
 "
 
 [node name="FulminataImage" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Heading/Organizer"]
@@ -337,7 +337,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
-text = "Controls:"
+text = " Controls:"
 
 [node name="Remap" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer"]
 custom_minimum_size = Vector2(0, 30)
@@ -346,7 +346,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Remappable:"
+text = "  Remappable:"
 
 [node name="ActionsList" type="VBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer"]
 layout_mode = 2
@@ -361,7 +361,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Non Remappable:"
+text = "  Non Remappable:"
 
 [node name="ActionsList2" type="VBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Controls/Organizer"]
 layout_mode = 2
@@ -444,13 +444,13 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
-text = "What is Marvin:"
+text = " What is Marvin:"
 
 [node name="Indent" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Intro/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Intro/Organizer/Indent"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -462,7 +462,9 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Easy path planning for the FTC road-runner repository. This program allows you to easily plan and execute trajectories."
+text = "Marvin is an easy path planning for the FTC Road-Runner repository. This program allows you to easily plan and execute trajectories. You can visually drag and drop robots onto the FTC field, plan paths and spline trajectories, and insert the automatically generated code into Android Studio.
+
+"
 fit_content = true
 
 [node name="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/Intro" instance=ExtResource("6_uyi2y")]
@@ -483,7 +485,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
-text = "Getting Started:"
+text = " Getting Started:"
 
 [node name="CameraViews" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
@@ -491,14 +493,14 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Camera Views:"
+text = "  Camera Views:"
 fit_content = true
 
 [node name="Indent" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(13, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -517,7 +519,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent3"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -544,7 +546,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -552,7 +554,7 @@ mouse_filter = 1
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent2/Indent2"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -565,7 +567,7 @@ theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "2. Perspective (P)
-This view is harder to navigate, but allows for a 3D view of the field and bots. This can be useful to see how your robot will interact with the field in the Z dimention."
+This view is harder to navigate, but it allows for a 3D view of the field and robots. This can be useful to see how your robot will interact with the field in the Z dimension."
 fit_content = true
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
@@ -579,7 +581,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent4"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -598,7 +600,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent5"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -609,7 +611,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Moving in the perspective view can be initiated with the Control key by default. Use WASD for forward, left, back, and right (by default), and Space/Shift for up and down. Move the mouse curser to rotate the camera."
+text = "Moving in the perspective view can be initiated with the Control key by default. Use WASD for forward, left, back, and right (by default), and Space/Shift for up and down. Move the mouse cursor to rotate the camera."
 fit_content = true
 
 [node name="PlacingBots" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
@@ -618,14 +620,14 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Placing Bots:"
+text = " Placing Bots:"
 fit_content = true
 
 [node name="Indent17" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent17"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -644,7 +646,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent6"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -670,7 +672,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent7"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -696,7 +698,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent8"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -708,18 +710,18 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "		[font_size=16]Important node: The heading is indicated by the white box extruded from the 
+text = "		[font_size=16]Important note: The heading is indicated by the white box extruded from the 
 		bot. It is only there to make direction clear and doesn't contribute to the size 
 		of your bot.[font_size=20]
 
-You can also edit the tangent which will effect the direction your bot move away from your bot position. Edit its rotation by clicking either the red or black sphere and holding that click. The tangent will follow your mouse."
+You can also edit the tangent which will effect the direction your bot move away from your previous bot position. Edit its rotation by clicking either the red or black arrow and holding that click. The tangent will follow your mouse."
 fit_content = true
 
 [node name="Indent9" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent9"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -731,7 +733,8 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "The image below demonstrates how the tangent effects the trajectory. The red tangent is the direction of the bot *leaveing* the position. The black tangent is the direction the robot will come twoards a position."
+text = "
+The image below demonstrates how the tangent effects the trajectory. The red tangent is the direction of the bot *leaving* the position. The black tangent is the direction the robot will come twoards a position."
 fit_content = true
 
 [node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
@@ -747,14 +750,14 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Bot Order and Control Buttons:"
+text = " Bot Order and Control Buttons:"
 fit_content = true
 
 [node name="Indent10" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent10"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -780,7 +783,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent11"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -794,7 +797,7 @@ theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "In the image above, we can see the starting position will be at the red robot (demonstrated by the color list). It will then go to the green and lastly the purple bot.
 
-It is also possible to change this order. To do this, click on the color that matches the bot you would like the change the order of. Then either move it foward or back with the corresponding button."
+It is possible to change this order. To do this, click on the color that matches the bot you would like the change the order of. Then either move it foward or back with the corresponding button."
 fit_content = true
 
 [node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
@@ -808,7 +811,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent12"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -820,7 +823,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "When you click on one of these buttons, it will also open up controls for that corresponding bot. Here you can edit the X and Y coordnate, the Tangent rotation, and the Heading rotation."
+text = "When you click on one of these buttons, it will also open up controls for that corresponding bot. Here you can edit the X and Y coordinate, the Tangent rotation (T), and the Heading rotation (H)."
 fit_content = true
 
 [node name="TextureRect8" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
@@ -834,7 +837,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent13"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -846,7 +849,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Lastly, you can delete the bot by clicking the large X"
+text = "Lastly, you can delete the bot by clicking the large X."
 fit_content = true
 
 [node name="PlacingBots2" type="RichTextLabel" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
@@ -855,14 +858,14 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Sidebar tools:"
+text = " Sidebar tools:"
 fit_content = true
 
 [node name="Indent14" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent14"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -885,10 +888,11 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Indent15" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent15"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -900,14 +904,15 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Bot Dimentions:"
+text = "Bot Dimensions:"
 fit_content = true
 
 [node name="DoubleIndent" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -919,16 +924,17 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
-text = "Width: Edit the Width of the robot (X)
+text = "Width: Edit the width of the robot (X)
 Length: Edit the length of the robot (Y)
 Height: Edit the height of the robot (Z)"
 fit_content = true
 
 [node name="Indent16" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
+visible = false
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent16"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -947,7 +953,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent2"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -966,7 +972,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent18"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -985,7 +991,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent3"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1004,7 +1010,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent19"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1023,7 +1029,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent4"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1043,7 +1049,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent20"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1062,7 +1068,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent5"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1074,7 +1080,7 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
-text = "Opens a file dialogue. Choose a directory and input a file name, then click \"save.\" Pressing \"Control C\" will now save a .yaml with the current path. The file will be overwritten every time this button combination is pressed. You can make a new file at any time by re-clicking the button and setting a new save path.
+text = "Opens a file dialogue. Choose a directory and input a file name, then click \"save.\" Pressing \"Ctrl+C\" will now save a .yaml with the current path. The file will be overwritten every time this button combination is pressed. You can make a new file at any time by re-clicking the button and setting a new save path.
 
 Important note: These files are compatable with Road Runner GUI. For more accurate simulation, load these files into RR-GUI."
 fit_content = true
@@ -1083,7 +1089,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent21"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1102,7 +1108,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent6"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1114,16 +1120,17 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 17
 bbcode_enabled = true
-text = "Opens a file dialogue. Load any .yaml file by double clicking the file. Deletes current path! Use Ctrl+z to bring back your path!
+text = "Opens a file dialogue. Load any .yaml file by double clicking the file. 
+NOTE: Loading a new file deletes current path! Use Ctrl+z to bring back your path.
 
-Important note: Compatable with Road Runner GUI files."
+IMPORTANT NOTE: Marvin files are compatable with Road Runner GUI files."
 fit_content = true
 
 [node name="Indent22" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/Indent22"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 mouse_filter = 1
 
@@ -1135,14 +1142,14 @@ mouse_filter = 1
 theme = SubResource("Theme_ss0b6")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Save on Exit"
+text = "Save on Exit:"
 fit_content = true
 
 [node name="DoubleIndent7" type="HBoxContainer" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer/DoubleIndent7"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 mouse_filter = 1
 

@@ -1,10 +1,4 @@
-res://3DScene.tscn
+res://Instuctions.tscn
 res://GUIControls.tres
 res://new_font_file.tres
 res://testShader.gdshader
-res://bot.tscn
-res://settings.tscn
-res://list_bot.tscn
-res://Instuctions.tscn
-res://expandInstructionsButton.tscn
-res://input_button.tscn
