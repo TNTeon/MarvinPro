@@ -878,7 +878,6 @@ text = "The sidebar offers various tools while making your trajectories."
 fit_content = true
 
 [node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Panel/ScrollConainer/ContainerManager/GettingStarted/Organizer"]
-visible = false
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 texture = ExtResource("14_5h0x3")
