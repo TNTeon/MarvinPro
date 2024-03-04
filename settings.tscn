@@ -425,6 +425,50 @@ tracks/36/keys = {
 "points": PackedFloat32Array(474, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/37/type = "bezier"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../CanvasLayer/CheckButton3:position:x")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/38/type = "bezier"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../CanvasLayer/CheckButton3:position:y")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(566, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/39/type = "bezier"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../CanvasLayer/RichTextLabel8:position:x")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/40/type = "bezier"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("../CanvasLayer/RichTextLabel8:position:y")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(534, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qotda"]
 resource_name = "foldAway"
@@ -836,6 +880,50 @@ tracks/36/keys = {
 "points": PackedFloat32Array(474, -0.25, 0, 0.25, 0, 474, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
+tracks/37/type = "bezier"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("../CanvasLayer/CheckButton3:position:x")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(57, -0.25, 0, 0.25, 0, -125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/38/type = "bezier"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("../CanvasLayer/CheckButton3:position:y")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(566, -0.25, 0, 0.25, 0, 566, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/39/type = "bezier"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("../CanvasLayer/RichTextLabel8:position:x")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(21, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/40/type = "bezier"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("../CanvasLayer/RichTextLabel8:position:y")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(534, -0.25, 0, 0.25, 0, 534, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yikym"]
 _data = {
@@ -862,7 +950,7 @@ layout_mode = 0
 offset_left = -182.0
 offset_top = 3.0
 offset_right = -14.0
-offset_bottom = 544.0
+offset_bottom = 609.0
 mouse_filter = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -910,6 +998,13 @@ offset_top = 474.0
 offset_right = -43.0
 offset_bottom = 503.0
 text = "Save On Exit"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = -161.0
+offset_top = 534.0
+offset_right = -16.0
+offset_bottom = 563.0
+text = "Light/Dark Mode"
 
 [node name="WidthSelection" type="SpinBox" parent="CanvasLayer"]
 offset_left = -138.0
@@ -1107,6 +1202,13 @@ offset_bottom = 533.0
 mouse_filter = 1
 script = ExtResource("8_qihtu")
 
+[node name="CheckButton3" type="CheckButton" parent="CanvasLayer"]
+offset_left = -125.0
+offset_top = 566.0
+offset_right = -74.0
+offset_bottom = 596.0
+mouse_filter = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel2")
 libraries = {
@@ -1149,3 +1251,5 @@ libraries = {
 [connection signal="mouse_entered" from="CanvasLayer/CheckButton2" to="CanvasLayer" method="_on_check_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/CheckButton2" to="CanvasLayer" method="_on_check_button_2_mouse_exited"]
 [connection signal="toggled" from="CanvasLayer/CheckButton2" to="CanvasLayer/CheckButton2" method="_on_toggled"]
+[connection signal="mouse_entered" from="CanvasLayer/CheckButton3" to="CanvasLayer" method="_on_check_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/CheckButton3" to="CanvasLayer" method="_on_check_button_2_mouse_exited"]

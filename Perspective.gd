@@ -18,7 +18,7 @@ var mouseHeld = false
 
 
 func _ready():
-	self.size = 15
+	self.size = 17
 	global.camera = self
 
 #Switch between Perspective and orthographic views
