@@ -1,7 +1,10 @@
+Label3D
+CollisionShape3D
+StaticBody3D
+Node3D
 FileDialog
 Button
 Label
-Label3D
 Control
 AnimationPlayer
 TextureRect
@@ -9,6 +12,3 @@ TextureButton
 VBoxContainer
 HBoxContainer
 MarginContainer
-PanelContainer
-NinePatchRect
-ScrollContainer

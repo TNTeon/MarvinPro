@@ -8,3 +8,9 @@ res://list_bot.tscn
 res://Instuctions.tscn
 res://expandInstructionsButton.tscn
 res://input_button.tscn
+res://global.gd
+res://KCShow.gd
+res://Camera.gd
+res://Label3D.gd
+res://BasicText.gd
+res://Floor.gd

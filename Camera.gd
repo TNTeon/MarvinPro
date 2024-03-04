@@ -43,7 +43,7 @@ func _unhandled_input(event):
 		if event.as_text_key_label() == sequence[sequence_index]:
 			sequence_index += 1
 			if sequence_index == sequence.size():
-				print("CHEAT")
+				global.KC = !global.KC
 				flip = true
 				flipRot = 0
 				sequence_index = 0
@@ -67,8 +67,8 @@ func _physics_process(delta):
 			velocity.y = -1 * SPEED
 		else:
 			velocity.y = 0
-			
 		move_and_slide()
+		
 	if flip:
 		flipRot += delta * 5
 		camera.rotate_x(delta * 5)

@@ -24,6 +24,8 @@ var textInput
 
 var usingTextEdit
 
+var KC = false
+
 var speedSlider = 0.5
 
 var invisBots = false

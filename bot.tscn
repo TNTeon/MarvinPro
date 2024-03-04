@@ -1,9 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ch8eiplk7iqaq"]
+[gd_scene load_steps=18 format=3 uid="uid://ch8eiplk7iqaq"]
 
 [ext_resource type="Script" path="res://bot.gd" id="1_7g7qg"]
 [ext_resource type="PackedScene" uid="uid://txwcakpkje0a" path="res://TangentMover.blend" id="2_x8at5"]
 [ext_resource type="Script" path="res://TangentMover.gd" id="3_dkkao"]
 [ext_resource type="Script" path="res://Label3D.gd" id="4_nfrdk"]
+[ext_resource type="PackedScene" uid="uid://vwc8stcgxshu" path="res://temp.blend" id="5_0beei"]
+[ext_resource type="Script" path="res://KCShow.gd" id="6_cylyi"]
+[ext_resource type="PackedScene" uid="uid://lt8i3ldxf80b" path="res://temp2.blend" id="6_euqtr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sby2n"]
 resource_local_to_scene = true
@@ -49,6 +52,8 @@ metadata/orderNum = 0
 metadata/connectedListBot = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4tgsc")
@@ -63,6 +68,8 @@ script = ExtResource("3_dkkao")
 
 [node name="Colision1" type="StaticBody3D" parent="TangentMover"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.59895)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TangentMover/Colision1"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
@@ -70,6 +77,8 @@ shape = SubResource("SphereShape3D_l28q8")
 
 [node name="Colision2" type="StaticBody3D" parent="TangentMover"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75517)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TangentMover/Colision2"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
@@ -93,9 +102,24 @@ sorting_offset = -1.0
 mesh = SubResource("BoxMesh_vk8vs")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.56643, 0)
 top_level = true
 sorting_offset = 1.0
 pixel_size = 0.015
 text = "1"
 script = ExtResource("4_nfrdk")
+
+[node name="Testing" type="Node3D" parent="."]
+script = ExtResource("6_cylyi")
+
+[node name="temp" parent="Testing" instance=ExtResource("5_0beei")]
+transform = Transform3D(-0.556264, 0, -0.326489, 0, 0.645, 0, 0.326489, 0, -0.556264, -0.00637871, 0.547286, -0.0128968)
+visible = false
+
+[node name="temp2" parent="Testing" instance=ExtResource("6_euqtr")]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, -0.000175655, 0.5, -0.00802749)
+visible = false
+
+[node name="temp3" parent="Testing" instance=ExtResource("5_0beei")]
+transform = Transform3D(-0.116502, 0, -0.243572, 0, 0.27, 0, 0.243572, 0, -0.116502, 0.32054, 0.512676, 0.294057)
+visible = false
