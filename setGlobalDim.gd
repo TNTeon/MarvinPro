@@ -15,6 +15,11 @@ func _process(delta):
 	$LengthSelection.value = global.botDimentions.z
 	$HeightSelection.value = global.botDimentions.y
 	
+	if global.openedInstructions:
+		$ScrollContainer.visible = false
+	else:
+		$ScrollContainer.visible = true
+	
 func _on_width_selection_value_changed(value):
 	global.botDimentions.x = value
 
@@ -42,6 +47,14 @@ func _input(event):
 		$SnappedSelection.get_line_edit().release_focus()
 	if event is InputEventMouseButton and not _is_pos_in(event.position,$CheckButton) or event.is_action_pressed("ui_accept"):
 		$CheckButton.release_focus()
+	if event is InputEventMouseButton and not _is_pos_in(event.position,$CheckButton2) or event.is_action_pressed("ui_accept"):
+		$CheckButton2.release_focus()
+	if event is InputEventMouseButton and not _is_pos_in(event.position,$CheckButton3) or event.is_action_pressed("ui_accept"):
+		$CheckButton3.release_focus()
+	if event is InputEventMouseButton and not _is_pos_in(event.position,$ExportRRButton) or event.is_action_pressed("ui_accept"):
+		$ExportRRButton.release_focus()
+	if event is InputEventMouseButton and not _is_pos_in(event.position,$LoadFileButton) or event.is_action_pressed("ui_accept"):
+		$LoadFileButton.release_focus()
 		
 	if event is InputEventMouse and _is_pos_in(event.position,$MouseStuff):
 		global.hoveringGUI = true

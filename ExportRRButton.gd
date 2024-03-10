@@ -10,10 +10,12 @@ func _ready():
 func _process(delta):
 	if $FileDialog.visible:
 		global.hoveringGUI = true
+		global.directoryOpen = true
 		dirDialogOpen = true
 	elif dirDialogOpen:
 		dirDialogOpen = false
 		global.hoveringGUI = false
+		global.directoryOpen = false
 
 
 func _on_pressed():

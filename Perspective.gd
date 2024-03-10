@@ -23,12 +23,12 @@ func _ready():
 
 #Switch between Perspective and orthographic views
 func _process(delta):
-	if Input.is_action_just_pressed("ui_o"):
+	if Input.is_action_just_pressed("ui_o") and !global.directoryOpen:
 		global.camPerspective = false
-	elif Input.is_action_just_pressed("ui_p"):
+	elif Input.is_action_just_pressed("ui_p") and !global.directoryOpen:
 		global.camPerspective = true
 	
-	ghostBox.scale = global.botDimentions/12
+	ghostBox.scale = global.botDimentions/12.0
 	
 	if !Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		placeBox()

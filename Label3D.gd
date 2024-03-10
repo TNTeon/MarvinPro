@@ -16,7 +16,7 @@ func _process(delta):
 		look_at(global.camera.global_position)
 		self.rotation.x += deg_to_rad(180)
 		self.rotation.z += deg_to_rad(180)
-		self.text = str(global.botOrder.find(get_parent())+1)
 	else:
 		self.rotation = Vector3(deg_to_rad(-90),0,0)
+	self.text = str(global.botOrder.find(get_parent())+1)
 	

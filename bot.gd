@@ -29,8 +29,8 @@ func _process(delta):
 	else:
 		self.visible = true
 	
-	self.scale = global.botDimentions/12
-	self.position.y = global.botDimentions.y/24
+	self.scale = global.botDimentions/12.0
+	self.position.y = global.botDimentions.y/24.0
 	
 	var selfPosInList = global.botOrder.find(self)
 	if selfPosInList != -1:
