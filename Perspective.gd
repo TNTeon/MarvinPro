@@ -35,7 +35,7 @@ func _process(delta):
 	else:
 		ghostBox.visible = false
 		
-	if currentPersective != global.camPerspective:
+	if currentPersective != global.camPerspective and t >= 1:
 		if currentPersective:
 			PosA = self.global_position
 			RotA = self.global_rotation
