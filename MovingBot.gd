@@ -24,9 +24,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	speed = global.speedSlider
+	var curveLength = curve.get_baked_length()
+	if curveLength != 0:
+		speed = global.speedSlider/curveLength
+	else:
+		speed = 0
 	global.isPreviewing = showingPreview
-	
 	if Input.is_action_just_pressed("ui_q") and len(global.botOrder) >= 2:
 		if showingPreview:
 			self.visible = false

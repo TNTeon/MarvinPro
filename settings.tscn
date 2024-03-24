@@ -274,199 +274,199 @@ tracks/22/keys = {
 tracks/23/type = "bezier"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../CanvasLayer/speedSlider:position:x")
+tracks/23/path = NodePath("../CanvasLayer/RichTextLabel5:position:x")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-138, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/24/type = "bezier"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../CanvasLayer/speedSlider:position:y")
+tracks/24/path = NodePath("../CanvasLayer/RichTextLabel5:position:y")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(246, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(340, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/25/type = "bezier"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../CanvasLayer/RichTextLabel5:position:x")
+tracks/25/path = NodePath("../CanvasLayer/ExportRRButton:position:x")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(48, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/26/type = "bezier"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../CanvasLayer/RichTextLabel5:position:y")
+tracks/26/path = NodePath("../CanvasLayer/ExportRRButton:position:y")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(340, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(373, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/27/type = "bezier"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../CanvasLayer/ExportRRButton:position:x")
+tracks/27/path = NodePath("../CanvasLayer/LoadFileButton:position:x")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(48, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-136, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/28/type = "bezier"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../CanvasLayer/ExportRRButton:position:y")
+tracks/28/path = NodePath("../CanvasLayer/LoadFileButton:position:y")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(373, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(432, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/29/type = "bezier"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("../CanvasLayer/LoadFileButton:position:x")
+tracks/29/path = NodePath("../CanvasLayer/RichTextLabel6:position:x")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-136, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/30/type = "bezier"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("../CanvasLayer/LoadFileButton:position:y")
+tracks/30/path = NodePath("../CanvasLayer/RichTextLabel6:position:y")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(432, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(407, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/31/type = "bezier"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("../CanvasLayer/RichTextLabel6:position:x")
+tracks/31/path = NodePath("../CanvasLayer/CheckButton2:position:x")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-125, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/32/type = "bezier"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("../CanvasLayer/RichTextLabel6:position:y")
+tracks/32/path = NodePath("../CanvasLayer/CheckButton2:position:y")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(407, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(503, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/33/type = "bezier"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("../CanvasLayer/CheckButton2:position:x")
+tracks/33/path = NodePath("../CanvasLayer/RichTextLabel7:position:x")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-125, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/34/type = "bezier"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("../CanvasLayer/CheckButton2:position:y")
+tracks/34/path = NodePath("../CanvasLayer/RichTextLabel7:position:y")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(503, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(474, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/35/type = "bezier"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("../CanvasLayer/RichTextLabel7:position:x")
+tracks/35/path = NodePath("../CanvasLayer/CheckButton3:position:x")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-125, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/36/type = "bezier"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("../CanvasLayer/RichTextLabel7:position:y")
+tracks/36/path = NodePath("../CanvasLayer/CheckButton3:position:y")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(474, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(566, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/37/type = "bezier"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("../CanvasLayer/CheckButton3:position:x")
+tracks/37/path = NodePath("../CanvasLayer/RichTextLabel8:position:x")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-125, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/38/type = "bezier"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("../CanvasLayer/CheckButton3:position:y")
+tracks/38/path = NodePath("../CanvasLayer/RichTextLabel8:position:y")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(566, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(534, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/39/type = "bezier"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("../CanvasLayer/RichTextLabel8:position:x")
+tracks/39/path = NodePath("../CanvasLayer/SpeedSelection:position:x")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-138, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/40/type = "bezier"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("../CanvasLayer/RichTextLabel8:position:y")
+tracks/40/path = NodePath("../CanvasLayer/SpeedSelection:position:y")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(534, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(252, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -696,84 +696,84 @@ tracks/19/keys = {
 tracks/20/type = "bezier"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("../CanvasLayer/speedSlider:position:x")
+tracks/20/path = NodePath("../CanvasLayer/FoldInButton:position:x")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(46, -0.25, 0, 0.25, 0, -138, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-400, -0.25, 0, 0.25, 0, -584, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/21/type = "bezier"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("../CanvasLayer/speedSlider:position:y")
+tracks/21/path = NodePath("../CanvasLayer/FoldInButton:position:y")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(246, -0.25, 0, 0.25, 0, 246, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-440, -0.25, 0, 0.25, 0, -440, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/22/type = "bezier"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("../CanvasLayer/FoldInButton:position:x")
+tracks/22/path = NodePath("../CanvasLayer/FoldInButton:rotation")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-400, -0.25, 0, 0.25, 0, -584, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/23/type = "bezier"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("../CanvasLayer/FoldInButton:position:y")
+tracks/23/path = NodePath("../CanvasLayer/RichTextLabel5:position:x")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-440, -0.25, 0, 0.25, 0, -440, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/24/type = "bezier"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("../CanvasLayer/FoldInButton:rotation")
+tracks/24/path = NodePath("../CanvasLayer/RichTextLabel5:position:y")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(340, -0.25, 0, 0.25, 0, 340, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/25/type = "bezier"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("../CanvasLayer/RichTextLabel5:position:x")
+tracks/25/path = NodePath("../CanvasLayer/ExportRRButton:position:x")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(48, -0.25, 0, 0.25, 0, -136, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/26/type = "bezier"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("../CanvasLayer/RichTextLabel5:position:y")
+tracks/26/path = NodePath("../CanvasLayer/ExportRRButton:position:y")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(340, -0.25, 0, 0.25, 0, 340, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(373, -0.25, 0, 0.25, 0, 373, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/27/type = "bezier"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("../CanvasLayer/ExportRRButton:position:x")
+tracks/27/path = NodePath("../CanvasLayer/LoadFileButton:position:x")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -784,144 +784,144 @@ tracks/27/keys = {
 tracks/28/type = "bezier"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("../CanvasLayer/ExportRRButton:position:y")
+tracks/28/path = NodePath("../CanvasLayer/LoadFileButton:position:y")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(373, -0.25, 0, 0.25, 0, 373, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(432, -0.25, 0, 0.25, 0, 432, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/29/type = "bezier"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("../CanvasLayer/LoadFileButton:position:x")
+tracks/29/path = NodePath("../CanvasLayer/RichTextLabel6:position:x")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(48, -0.25, 0, 0.25, 0, -136, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/30/type = "bezier"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("../CanvasLayer/LoadFileButton:position:y")
+tracks/30/path = NodePath("../CanvasLayer/RichTextLabel6:position:y")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(432, -0.25, 0, 0.25, 0, 432, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(407, -0.25, 0, 0.25, 0, 407, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/31/type = "bezier"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("../CanvasLayer/RichTextLabel6:position:x")
+tracks/31/path = NodePath("../CanvasLayer/CheckButton2:position:x")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(59, -0.25, 0, 0.25, 0, -125, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/32/type = "bezier"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("../CanvasLayer/RichTextLabel6:position:y")
+tracks/32/path = NodePath("../CanvasLayer/CheckButton2:position:y")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(407, -0.25, 0, 0.25, 0, 407, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(503, -0.25, 0, 0.25, 0, 503, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/33/type = "bezier"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("../CanvasLayer/CheckButton2:position:x")
+tracks/33/path = NodePath("../CanvasLayer/RichTextLabel7:position:x")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(59, -0.25, 0, 0.25, 0, -125, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/34/type = "bezier"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("../CanvasLayer/CheckButton2:position:y")
+tracks/34/path = NodePath("../CanvasLayer/RichTextLabel7:position:y")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(503, -0.25, 0, 0.25, 0, 503, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(474, -0.25, 0, 0.25, 0, 474, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/35/type = "bezier"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("../CanvasLayer/RichTextLabel7:position:x")
+tracks/35/path = NodePath("../CanvasLayer/CheckButton3:position:x")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(23, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(57, -0.25, 0, 0.25, 0, -125, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/36/type = "bezier"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("../CanvasLayer/RichTextLabel7:position:y")
+tracks/36/path = NodePath("../CanvasLayer/CheckButton3:position:y")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(474, -0.25, 0, 0.25, 0, 474, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(566, -0.25, 0, 0.25, 0, 566, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/37/type = "bezier"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("../CanvasLayer/CheckButton3:position:x")
+tracks/37/path = NodePath("../CanvasLayer/RichTextLabel8:position:x")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(57, -0.25, 0, 0.25, 0, -125, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(21, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/38/type = "bezier"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("../CanvasLayer/CheckButton3:position:y")
+tracks/38/path = NodePath("../CanvasLayer/RichTextLabel8:position:y")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(566, -0.25, 0, 0.25, 0, 566, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(534, -0.25, 0, 0.25, 0, 534, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/39/type = "bezier"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("../CanvasLayer/RichTextLabel8:position:x")
+tracks/39/path = NodePath("../CanvasLayer/SpeedSelection:position:x")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(21, -0.25, 0, 0.25, 0, -161, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(46, -0.25, 0, 0.25, 0, -138, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/40/type = "bezier"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("../CanvasLayer/RichTextLabel8:position:y")
+tracks/40/path = NodePath("../CanvasLayer/SpeedSelection:position:y")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(534, -0.25, 0, 0.25, 0, 534, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(252, -0.25, 0, 0.25, 0, 252, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
 
@@ -1051,6 +1051,7 @@ offset_top = 192.0
 offset_right = -14.0
 offset_bottom = 223.0
 mouse_filter = 1
+theme = ExtResource("2_8l7ij")
 step = 0.01
 value = 12.0
 prefix = "Clip:"
@@ -1098,16 +1099,18 @@ offset_right = -74.0
 offset_bottom = 331.0
 mouse_filter = 1
 
-[node name="speedSlider" type="HSlider" parent="CanvasLayer"]
+[node name="SpeedSelection" type="SpinBox" parent="CanvasLayer"]
 offset_left = -138.0
-offset_top = 246.0
-offset_right = -42.0
-offset_bottom = 288.0
+offset_top = 252.0
+offset_right = -14.0
+offset_bottom = 283.0
 mouse_filter = 1
 theme = ExtResource("2_8l7ij")
-max_value = 2.0
-step = 0.01
-value = 0.5
+step = 0.1
+value = 2.0
+prefix = "Speed:"
+suffix = "ft/s"
+select_all_on_focus = true
 
 [node name="deleteAll" type="Control" parent="CanvasLayer"]
 visible = false
@@ -1235,9 +1238,8 @@ libraries = {
 [connection signal="mouse_exited" from="CanvasLayer/ScrollContainer" to="CanvasLayer" method="_on_scroll_container_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/CheckButton" to="CanvasLayer" method="_on_check_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/CheckButton" to="CanvasLayer" method="_on_check_button_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/speedSlider" to="CanvasLayer" method="_on_speed_slider_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/speedSlider" to="CanvasLayer" method="_on_speed_slider_mouse_exited"]
-[connection signal="value_changed" from="CanvasLayer/speedSlider" to="CanvasLayer" method="_on_speed_slider_value_changed"]
+[connection signal="mouse_entered" from="CanvasLayer/SpeedSelection" to="CanvasLayer" method="_on_width_selection_mouse_entered"]
+[connection signal="value_changed" from="CanvasLayer/SpeedSelection" to="CanvasLayer" method="_on_speed_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/deleteAll/yesDeleteBut" to="CanvasLayer/deleteAll" method="_on_yes_delete_but_pressed"]
 [connection signal="pressed" from="CanvasLayer/deleteAll/noKeepBut" to="CanvasLayer/deleteAll" method="_on_no_keep_but_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/FoldInButton" to="CanvasLayer" method="_on_fold_in_button_mouse_entered"]

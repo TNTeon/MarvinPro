@@ -14,6 +14,8 @@ func _process(delta):
 	$WidthSelection.value = global.botDimentions.x
 	$LengthSelection.value = global.botDimentions.z
 	$HeightSelection.value = global.botDimentions.y
+	$SpeedSelection.value = global.speedSlider
+	
 	
 	if global.openedInstructions:
 		$ScrollContainer.visible = false
@@ -45,6 +47,8 @@ func _input(event):
 		$HeightSelection.get_line_edit().release_focus()
 	if event is InputEventMouseButton and not _is_pos_in(event.position,$SnappedSelection) or event.is_action_pressed("ui_accept"):
 		$SnappedSelection.get_line_edit().release_focus()
+	if event is InputEventMouseButton and not _is_pos_in(event.position,$SpeedSelection) or event.is_action_pressed("ui_accept"):
+		$SpeedSelection.get_line_edit().release_focus()
 	if event is InputEventMouseButton and not _is_pos_in(event.position,$CheckButton) or event.is_action_pressed("ui_accept"):
 		$CheckButton.release_focus()
 	if event is InputEventMouseButton and not _is_pos_in(event.position,$CheckButton2) or event.is_action_pressed("ui_accept"):
