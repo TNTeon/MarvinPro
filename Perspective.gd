@@ -36,11 +36,14 @@ func _process(delta):
 		ghostBox.visible = false
 		
 	if currentPersective != global.camPerspective:
-		if currentPersective:
+		if currentPersective and t >= 1:
 			PosA = self.global_position
 			RotA = self.global_rotation
 		currentPersective = global.camPerspective
-		t = 0
+		if t >= 1:
+			t = 0
+		else:
+			t = 1-t
 		global.DontMoveCam = true
 	if t < 1 and !currentPersective:
 		self.global_position = PosA.lerp(orthoPos,t)
