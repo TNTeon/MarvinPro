@@ -64,18 +64,28 @@ func _process(delta):
 			curve.add_point(fullCurve.get_point_position(pathSection),fullCurve.get_point_in(pathSection), fullCurve.get_point_out(pathSection))
 			curve.add_point(fullCurve.get_point_position(pathSection+1),fullCurve.get_point_in(pathSection+1), fullCurve.get_point_out(pathSection+1))
 			
-			var currentBotRotation = global.botOrder[pathSection].rotation.y
-			var secondBotRotation = global.botOrder[pathSection+1].rotation.y
-			var secondBotRotPlus = global.botOrder[pathSection+1].rotation.y + 2 * PI
-			var secondBotRotMinus = global.botOrder[pathSection+1].rotation.y - 2 * PI
-			var minSecondsBotRot = min(abs(currentBotRotation-secondBotRotation),abs(currentBotRotation-secondBotRotMinus),abs(currentBotRotation-secondBotRotPlus))
+			var currentBotRotation = fmod(global.botOrder[pathSection].rotation.y,TAU)
+			currentBotRotation = fmod((currentBotRotation + TAU), TAU)
+			var secondBotRotation = fmod(global.botOrder[pathSection+1].rotation.y,TAU)
+			secondBotRotation = fmod((secondBotRotation + TAU), TAU)
 			
-			if minSecondsBotRot == abs(currentBotRotation-secondBotRotation):
-				self.rotation.y = lerp(currentBotRotation,secondBotRotation, progress)
-			elif minSecondsBotRot == abs(currentBotRotation-secondBotRotMinus):
-				self.rotation.y = lerp(currentBotRotation,secondBotRotMinus, progress)
-			else:
-				self.rotation.y = lerp(currentBotRotation,secondBotRotPlus, progress)
+			if (currentBotRotation > PI):
+				currentBotRotation -= TAU
+			if (secondBotRotation > PI):
+				secondBotRotation -= TAU
+			
+			var dx0 = 5
+			var dx1 = -5
+			
+			var a = 2 * currentBotRotation + dx0 - 2 * secondBotRotation + dx1
+			var b = -3 * currentBotRotation - 2 * dx0 + 3 * secondBotRotation - dx1
+			var c = dx0
+			var d = currentBotRotation
+			
+			var setRot = (a * pow(progress,3)) + (b * pow(progress,2)) + (c * progress) + d
+			
+			self.rotation.y = setRot
+			
 			get_parent().progress_ratio = progress
 func stopPreview():
 	self.visible = false
