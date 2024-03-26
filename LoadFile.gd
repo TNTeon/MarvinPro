@@ -64,6 +64,7 @@ func _on_file_dialog_file_selected(path):
 			global.botDimentions = Vector3(float(allDims[0]),float(allDims[1]),float(allDims[2]))
 		
 		var validNums = []
+		var interpList = []
 		while not f.eof_reached(): # iterate through all lines until the end of file is reached
 			var line = f.get_line()
 			var floatConvert = ""
@@ -72,19 +73,33 @@ func _on_file_dialog_file_selected(path):
 					floatConvert += char
 			if floatConvert.is_valid_float():
 				validNums.append(float(floatConvert))
+			print(line)
+			if "SPLINE" in line:
+				interpList.append("spline")
+			elif "LINEAR" in line:
+				interpList.append("linear")
+			elif "CONSTANT" in line:
+				interpList.append("spline")
+			elif "TANGENT" in line:
+				interpList.append("spline")
+		print(interpList)
 		while len(validNums) >= 4:
 			print(validNums[0]," ",validNums[1], " ", validNums[2], " ",validNums[3])
 			var instanceBot = botScene.instantiate()
 			instanceBot.position = Vector3(-validNums[1]/12.0,global.botDimentions.y/2.0,-validNums[0]/12.0)
 			instanceBot.rotation.y = validNums[2]
+			instanceBot.stopFirstClick()
+			if len(interpList) > 0:
+				instanceBot.autoLoadInterp = interpList[0]
 			get_tree().get_root().add_child(instanceBot)
 			instanceBot.find_child("TangentMover").rotation.y = validNums[3]
-			instanceBot.stopFirstClick()
 			global.botOrder.append(instanceBot)
 			validNums.remove_at(0)
 			validNums.remove_at(0)
 			validNums.remove_at(0)
 			validNums.remove_at(0)
+			if len(interpList) > 0:
+				interpList.remove_at(0)
 		f.close()
 		
 		global.resetColors = true

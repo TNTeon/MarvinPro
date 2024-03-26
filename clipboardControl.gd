@@ -25,6 +25,7 @@ func _process(delta):
 	botList.append_array(global.botOrder)
 	var clipBoardString
 	var RRFileCon
+	var previousBotInterp = ""
 	if Input.is_action_just_pressed("ui_c") and len(botList) > 0 and !global.hoveringGUI:
 		clipBoardString = ""
 		print("copy")
@@ -33,10 +34,17 @@ func _process(delta):
 		clipBoardString += "Trajectory <REPLACE_WITH_TRAJ_NAME> = <REPLACE_WITH_SampleMecDrive>.trajectoryBuilder(<REPLACE_WITH_SampleMecDrive>.getPoseEstimate(), Math.toRadians(" + str(snapped(rad_to_deg(botList[0].find_child("TangentMover").rotation.y),0.01)) + "))"
 		clipBoardString += "\n"
 		
+		previousBotInterp = botList[0].get_meta("interpType")
+		
 		botList.remove_at(0)
 		
 		for bot in botList:
-			clipBoardString += ".splineToSplineHeading(new Pose2d(" + str(snapped(-bot.position.z*12,0.001)) + "," + str(snapped(-bot.position.x*12,0.001)) + ", Math.toRadians(" + str(snapped(rad_to_deg(bot.rotation.y),0.01)) + ")), Math.toRadians(" + str(snapped(rad_to_deg(bot.find_child("TangentMover").rotation.y),0.01)) + "))" 
+			if previousBotInterp == "spline":
+				clipBoardString += ".splineToSplineHeading"
+			else:
+				clipBoardString += ".splineToLinearHeading"
+			previousBotInterp = bot.get_meta("interpType")
+			clipBoardString += "(new Pose2d(" + str(snapped(-bot.position.z*12,0.001)) + "," + str(snapped(-bot.position.x*12,0.001)) + ", Math.toRadians(" + str(snapped(rad_to_deg(bot.rotation.y),0.01)) + ")), Math.toRadians(" + str(snapped(rad_to_deg(bot.find_child("TangentMover").rotation.y),0.01)) + "))" 
 			clipBoardString += "\n"
 		clipBoardString += ".build();"
 		
@@ -60,6 +68,7 @@ func saveFile(path):
 	+ "\nstartTangent: " + str(snapped(botList[0].find_child("TangentMover").rotation.y,0.01))
 	+ "\nwaypoints:")
 	
+	var previousBotInterp = botList[0]
 	botList.remove_at(0)
 	
 	for bot in botList:
@@ -68,7 +77,8 @@ func saveFile(path):
 			"\n    y: " + str(snapped(-bot.position.x*12,0.001))+
 			"\n  heading: " + str(snapped(bot.rotation.y,0.01))+
 			"\n  tangent: " + str(snapped(bot.find_child("TangentMover").rotation.y,0.01))+
-			"\n  interpolationType: \"SPLINE\"")
+			"\n  interpolationType: \""+previousBotInterp.get_meta("interpType").to_upper()+"\"")
+		previousBotInterp = bot
 	RRFileCon += "\nresolution: 0.25"+"\nversion: 1"
 	var RoadRunnerFile = FileAccess.open(path+".yaml", FileAccess.WRITE)
 	RoadRunnerFile.store_line(RRFileCon)

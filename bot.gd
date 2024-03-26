@@ -8,6 +8,8 @@ var firstClick = true
 var startRotating = false
 var startMoving = false
 var connectedListItem
+var autoLoad = false
+var autoLoadInterp = ""
 
 var listBotScene = load("res://list_bot.tscn")
 @onready var listBotContainer = $"/root/Node3D/settings/CanvasLayer/ScrollContainer/botListContainer"
@@ -21,9 +23,12 @@ func _ready():
 	instance.set_meta("conntectedBot", get_path())
 	listBotContainer.add_child(instance)
 	set_meta("connectedListBot",instance.get_path())
+	if autoLoad:
+		set_meta("interpType",autoLoadInterp)
+		connectedListItem.setInterp(autoLoadInterp)
 
 func _process(delta):
-	
+	set_meta("interpType",connectedListItem.get_meta("interpType"))
 	if global.invisBots:
 		self.visible = false
 	else:
@@ -97,6 +102,7 @@ func setConnection(connectedList):
 	
 func stopFirstClick():
 	firstClick = false
+	autoLoad = true
 
 func returnOrder():
 	return orderCreated

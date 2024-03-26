@@ -40,6 +40,8 @@ var directoryOpen = false
 
 var openedInstructions = false
 
+var objToExtendList
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	numBotsCreated = 0

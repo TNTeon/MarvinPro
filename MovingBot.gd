@@ -98,6 +98,13 @@ func _process(delta):
 			print(dx0)
 			print(dx1)
 			
+			var interpType = global.botOrder[pathSection].get_meta("interpType")
+			if interpType == "linear":
+				dx0 = 0
+				dx1 = 0
+			
+				
+			
 			var a = 2 * currentBotRotation + dx0 - 2 * secondBotRotation + dx1
 			var b = -3 * currentBotRotation - 2 * dx0 + 3 * secondBotRotation - dx1
 			var c = dx0

@@ -50,6 +50,7 @@ script = ExtResource("1_7g7qg")
 gradient = SubResource("Gradient_gkhka")
 metadata/orderNum = 0
 metadata/connectedListBot = NodePath("")
+metadata/interpType = 0.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 2

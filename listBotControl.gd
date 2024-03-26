@@ -7,6 +7,7 @@ extends Button
 @onready var yCord = $yCord
 @onready var tan = $tan
 @onready var heading = $heading
+@onready var interp = $interp
 
 @onready var animationPlrSeek = $"../AnimationPlayerSeek"
 @onready var animationPlrButton = $"../AnimationPlayerButton"
@@ -20,6 +21,8 @@ var outlineLerpT = 0
 var timeSinceStart = 0
 var speedOfOutline = 0.05
 
+var dropDownToggle = false
+
 func _ready():
 	animationPlrButton.play("RESETLeft")
 	backBut.visible = false
@@ -28,6 +31,7 @@ func _ready():
 	yCord.visible = false
 	tan.visible = false
 	heading.visible = false
+	interp.visible = false
 	parent = get_parent()
 	connectedBot = get_node(parent.get_meta("conntectedBot"))
 	connectedBot.setConnection(self)
@@ -39,10 +43,11 @@ func _ready():
 	backBut.set_material(backBut.get_material().duplicate(true))
 	forwardBut.set_material(backBut.get_material().duplicate(true))
 	
+	set_meta("interpType", "spline")
 
 func _on_pressed():
 	var eventPos = get_viewport().get_mouse_position()
-	if !xCord.visible or not _is_pos_in(eventPos,xCord) and not _is_pos_in(eventPos,yCord) and not _is_pos_in(eventPos,tan) and not _is_pos_in(eventPos,heading):
+	if !xCord.visible or not _is_pos_in(eventPos,xCord) and not _is_pos_in(eventPos,yCord) and not _is_pos_in(eventPos,tan) and not _is_pos_in(eventPos,heading) and not _is_pos_in(eventPos,interp):
 		visibleButtons(!deleteBut.visible)
 
 func visibleButtons(areVisible):
@@ -54,7 +59,11 @@ func visibleButtons(areVisible):
 		yCord.visible = areVisible
 		tan.visible = areVisible
 		heading.visible = areVisible
+		interp.visible = areVisible
 		animationPlrSeek.play("buttonSlideOut")
+		global.objToExtendList = self
+		get_parent().get_parent().get_parent().size.y = 150
+		get_parent().get_parent().get_parent().get_parent().find_child("MouseStuff").size.y = 150
 	else:
 		animationPlrSeek.play("buttonSlideIn")
 	
@@ -64,10 +73,14 @@ func _is_pos_in(checkpos:Vector2, gr):
 	return checkpos.x>=gr.position.x and checkpos.y>=gr.position.y and checkpos.x<gr.end.x and checkpos.y<gr.end.y
 
 func _input(event):
-	if (event is InputEventMouseButton and xCord.visible and not _is_pos_in(event.position,self) and not _is_pos_in(event.position,xCord) and not _is_pos_in(event.position,yCord) and not _is_pos_in(event.position,tan) and not _is_pos_in(event.position,heading) and (Input.is_action_just_released("ui_mouse_left") or Input.is_action_just_released("ui_mouse_right"))) or Input.is_action_just_pressed("ui_esc"):
+	if (event is InputEventMouseButton and xCord.visible and not _is_pos_in(event.position,self) and not _is_pos_in(event.position,xCord) and not _is_pos_in(event.position,yCord) and not _is_pos_in(event.position,tan) and not _is_pos_in(event.position,heading) and not _is_pos_in(event.position,interp) and (Input.is_action_just_released("ui_mouse_left") or Input.is_action_just_released("ui_mouse_right"))) or Input.is_action_just_pressed("ui_esc"):
 		self.visible = false
 		self.visible = true
 		visibleButtons(false)
+		if dropDownToggle:
+			print("ran")
+			dropDownToggle = false
+			global.hoveringGUI = false
 
 func _on_back_but_pressed():
 	animationPlrButton.play("moveButtonLeft")
@@ -91,6 +104,11 @@ func _on_delete_but_pressed():
 	get_parent().queue_free()
 
 func _process(delta):
+	
+	if interp.visible:
+		print(interp.position)
+	if dropDownToggle:
+		global.hoveringGUI = true
 	
 	if global.botOrder.find(connectedBot) == -1:
 		connectedBot.queue_free()
@@ -195,3 +213,40 @@ func _on_animation_player_button_animation_finished(anim_name):
 		global.botOrder.insert(tempPos+1, global.botOrder.pop_at(tempPos))
 		ControlZ.actions[len(ControlZ.actions)-1].append(global.botOrder.find(connectedBot))
 		
+
+
+func _on_interp_mouse_entered():
+	global.hoveringGUI = true
+
+
+func _on_interp_mouse_exited():
+	global.hoveringGUI = false
+
+
+func _on_animation_player_seek_animation_finished(anim_name):
+	if anim_name == "buttonSlideIn" and global.objToExtendList == self:
+		get_parent().get_parent().get_parent().size.y = 108
+		get_parent().get_parent().get_parent().get_parent().find_child("MouseStuff").size.y = 108
+
+
+func _on_interp_toggled(toggled_on):
+	if toggled_on:
+		dropDownToggle = toggled_on
+
+
+func _on_interp_item_selected(index):
+	if index == 0:
+		set_meta("interpType", "spline")
+	if index == 1:
+		set_meta("interpType", "linear")
+	if index == 2:
+		set_meta("interpType", "constant")
+	if index == 3:
+		set_meta("interpType", "tangent")
+	dropDownToggle = false
+	interp.release_focus()
+
+func setInterp(interpType):
+	set_meta("interpType", interpType)
+	if interpType == "linear":
+		interp.selected = 1

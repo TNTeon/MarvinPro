@@ -1082,7 +1082,7 @@ z_index = -2
 offset_left = 198.0
 offset_top = 23.0
 offset_right = 1071.0
-offset_bottom = 81.0
+offset_bottom = 131.0
 vertical_scroll_mode = 0
 
 [node name="botListContainer" type="HBoxContainer" parent="CanvasLayer/ScrollContainer"]
