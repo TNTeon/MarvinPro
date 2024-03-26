@@ -3,6 +3,7 @@ extends MeshInstance3D
 @onready var ghostBlock = $"../../../ghostBox"
 @onready var curve = $"../.."
 @onready var fullCurve = $"../../../Path3D"
+@onready var tanBot = $"../../PathFollow3D2/MovingBot"
 
 var progress
 var pathSection
@@ -64,6 +65,20 @@ func _process(delta):
 			curve.add_point(fullCurve.get_point_position(pathSection),fullCurve.get_point_in(pathSection), fullCurve.get_point_out(pathSection))
 			curve.add_point(fullCurve.get_point_position(pathSection+1),fullCurve.get_point_in(pathSection+1), fullCurve.get_point_out(pathSection+1))
 			
+			var tanAngleStart = atan2(fullCurve.get_point_out(pathSection).x,fullCurve.get_point_out(pathSection).z)
+			tanAngleStart -= PI
+			tanAngleStart = fmod(tanAngleStart,TAU)
+			tanAngleStart = fmod((tanAngleStart + TAU), TAU)
+			if (tanAngleStart > PI):
+				tanAngleStart -= TAU
+			
+			var tanAngleEnd = atan2(fullCurve.get_point_in(pathSection+1).x,fullCurve.get_point_in(pathSection+1).z)
+			tanAngleEnd -= TAU
+			tanAngleEnd = fmod(tanAngleEnd,TAU)
+			tanAngleEnd = fmod((tanAngleEnd + TAU), TAU)
+			if (tanAngleEnd > PI):
+				tanAngleEnd -= TAU
+			
 			var currentBotRotation = fmod(global.botOrder[pathSection].rotation.y,TAU)
 			currentBotRotation = fmod((currentBotRotation + TAU), TAU)
 			var secondBotRotation = fmod(global.botOrder[pathSection+1].rotation.y,TAU)
@@ -74,8 +89,14 @@ func _process(delta):
 			if (secondBotRotation > PI):
 				secondBotRotation -= TAU
 			
-			var dx0 = 5
-			var dx1 = -5
+			print(tanAngleEnd)
+			print(getTanAngle(0.995,tanAngleEnd))
+			var dx0 = (getTanAngle(0.005,tanAngleStart) - tanAngleStart)*500
+			var dx1 = (tanAngleEnd - getTanAngle(0.995,tanAngleEnd))*500
+			dx0 = clamp(dx0, -10, 10)
+			dx1 = clamp(dx1, -10, 10)
+			print(dx0)
+			print(dx1)
 			
 			var a = 2 * currentBotRotation + dx0 - 2 * secondBotRotation + dx1
 			var b = -3 * currentBotRotation - 2 * dx0 + 3 * secondBotRotation - dx1
@@ -92,3 +113,19 @@ func stopPreview():
 	showingPreview = false
 	global.hoveringGUI = false
 	pathSection = 0
+
+func getTanAngle(pos, ref):
+	$"../../PathFollow3D2".progress_ratio = pos
+	$"../../PathFollow3D2".rotation.y -= (PI/2)
+	var newRot = $"../../PathFollow3D2".rotation.y
+	
+	newRot -= PI/2
+	newRot = fmod(newRot,TAU)
+	newRot = fmod((newRot + TAU), TAU)
+	if (newRot > PI):
+		newRot -= TAU
+	if abs((newRot + TAU)-ref) < abs(newRot-ref):
+		newRot += TAU
+	if abs((newRot - TAU)-ref) < abs(newRot-ref):
+		newRot -= TAU
+	return newRot
