@@ -55,6 +55,7 @@ func _process(delta):
 		self.position.y = ghostBlock.scale.y/2
 		
 		if len(global.botOrder) > 1:
+			print(pathSection)
 			curve.clear_points()
 			if progress >=0.999:
 				if pathSection != len(global.botOrder)-2:

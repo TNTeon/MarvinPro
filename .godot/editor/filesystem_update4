@@ -1,11 +1,5 @@
-res://list_bot.tscn
+res://3DScene.tscn
 res://GUIControls.tres
 res://new_font_file.tres
 res://testShader.gdshader
-res://listBotControl.gd
-res://3DScene.tscn
-res://bot.tscn
-res://settings.tscn
-res://Instuctions.tscn
-res://expandInstructionsButton.tscn
-res://input_button.tscn
+res://MovingBot.gd
