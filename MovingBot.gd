@@ -12,6 +12,9 @@ var showingPreview = false
 
 var speed = 1
 
+var lastVel = 0
+var lastDX1 = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	progress = 0
@@ -90,21 +93,27 @@ func _process(delta):
 			if (secondBotRotation > PI):
 				secondBotRotation -= TAU
 			
-			print(tanAngleEnd)
-			print(getTanAngle(0.995,tanAngleEnd))
-			var dx0 = (getTanAngle(0.005,tanAngleStart) - tanAngleStart)*500
+			var dx0
+			if pathSection == 0:
+				dx0 = (getTanAngle(0.005,tanAngleStart) - tanAngleStart)*500
+			else:
+				dx0 = lastVel
 			var dx1 = (tanAngleEnd - getTanAngle(0.995,tanAngleEnd))*500
+			if lastDX1 != dx1:
+				lastVel = lastDX1
+				lastDX1 = dx1
+			
 			dx0 = clamp(dx0, -10, 10)
 			dx1 = clamp(dx1, -10, 10)
-			print(dx0)
-			print(dx1)
+			print("DX0 ",dx0)
+			print("DX1 ",dx1)
+			print("lastVel ",lastVel)
 			
 			var interpType = global.botOrder[pathSection].get_meta("interpType")
 			if interpType == "linear":
 				dx0 = 0
 				dx1 = 0
 			
-				
 			
 			var a = 2 * currentBotRotation + dx0 - 2 * secondBotRotation + dx1
 			var b = -3 * currentBotRotation - 2 * dx0 + 3 * secondBotRotation - dx1
@@ -116,6 +125,8 @@ func _process(delta):
 			self.rotation.y = setRot
 			
 			get_parent().progress_ratio = progress
+			
+			
 func stopPreview():
 	self.visible = false
 	showingPreview = false

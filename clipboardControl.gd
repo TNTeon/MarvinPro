@@ -58,6 +58,11 @@ func _process(delta):
 			saveFile(fileDir.text)
 			
 func saveFile(path):
+	print(path)
+	print(path.right(5))
+	if path.right(5) == ".yaml":
+		path = path.left(path.length() - 5)
+	print(path)
 	var botList = []
 	botList.append_array(global.botOrder)
 	var RRFileCon = ""
