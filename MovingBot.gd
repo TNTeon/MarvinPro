@@ -67,36 +67,73 @@ func _process(delta):
 			curve.add_point(fullCurve.get_point_position(pathSection),fullCurve.get_point_in(pathSection), fullCurve.get_point_out(pathSection))
 			curve.add_point(fullCurve.get_point_position(pathSection+1),fullCurve.get_point_in(pathSection+1), fullCurve.get_point_out(pathSection+1))
 			
-			var P0x = currentCurve.get_point_position(0).x
-			var P1x = P0x +currentCurve.get_point_out(0).x
-			var P3x = currentCurve.get_point_position(1).x
-			var P2x = P3x + currentCurve.get_point_in(1).x
+			var currentBotRotation = fmod(global.botOrder[pathSection].rotation.y,TAU)
+			currentBotRotation = fmod((currentBotRotation + TAU), TAU)
+			currentBotRotation = rad_to_deg(currentBotRotation)
 			
-			var P0y = currentCurve.get_point_position(0).z
-			var P1y = P0y +currentCurve.get_point_out(0).z
-			var P3y = currentCurve.get_point_position(1).z
-			var P2y = P3y + currentCurve.get_point_in(1).z
+			print("\n")
 			
-			var a = 0
-			var b = (splineD(P0x,P1x,P2x,P3x,0) * splineDD(P0y,P1y,P2y,P3y,0) - splineD(P0y,P1y,P2y,P3y,0) * splineD(P0x,P1x,P2x,P3x,0))*curveLength
-			var c = (splineD(P0x,P1x,P2x,P3x,0) * splineDDD(P0y,P1y,P2y,P3y,0) - splineD(P0y,P1y,P2y,P3y,0) * splineDDD(P0x,P1x,P2x,P3x,0))*curveLength
-			var d = 0
-			var e = (splineD(P0x,P1x,P2x,P3x,1) * splineDD(P0y,P1y,P2y,P3y,1) - splineD(P0y,P1y,P2y,P3y,1) * splineD(P0x,P1x,P2x,P3x,1))*curveLength
-			var f = (splineD(P0x,P1x,P2x,P3x,1) * splineDDD(P0y,P1y,P2y,P3y,1) - splineD(P0y,P1y,P2y,P3y,1) * splineDDD(P0x,P1x,P2x,P3x,1))*curveLength
+			var secondBotRotation = fmod(global.botOrder[pathSection+1].rotation.y,TAU)
+			secondBotRotation = fmod((secondBotRotation + TAU), TAU)
+			secondBotRotation = rad_to_deg(secondBotRotation)
+			if 0.01+abs((secondBotRotation + 360)-currentBotRotation) < abs(secondBotRotation-currentBotRotation):
+				secondBotRotation += 360
+				print("increased")
+			elif 0.01+abs((secondBotRotation - 360)-currentBotRotation) < abs(secondBotRotation-currentBotRotation):
+				secondBotRotation -= 360
+				print("decreased")
 			
-			var a1 = 0.05*f-0.6*(-0.25*f+e)+6*(0.05*f-0.4*e+d)-0.5*c-3*b-6*a
-			var b1 = -0.25*f+e-15*(0.05*f-0.4*e+d)+1.5*c+8*b+15*a
-			var c1 = 10*(0.05*f-0.4*e+d)-1.5*c-6*b-10*a
-			var d1 = 0.5*c
-			var e1 = b
-			var f1 = a
 			
-			var heading = pow(progress,5)*a1 + pow(progress,4)*b1 + pow(progress,3)*c1 + pow(progress,2)*d1 + progress*e1 + f1
-			heading = deg_to_rad(heading)
+			#print(currentBotRotation," ",secondBotRotation)
+			var heading
 			
 			var interpType = global.botOrder[pathSection].get_meta("interpType")
 			if interpType == "linear":
-				pass
+				heading = ((1-progress)*currentBotRotation)+(progress * secondBotRotation)
+				heading = deg_to_rad(heading)
+			else:
+				var P0x = currentCurve.get_point_position(0).x
+				var P1x = P0x +currentCurve.get_point_out(0).x
+				var P3x = currentCurve.get_point_position(1).x
+				var P2x = P3x + currentCurve.get_point_in(1).x
+				
+				var P0y = currentCurve.get_point_position(0).z
+				var P1y = (P0y +currentCurve.get_point_out(0).z)
+				var P3y = currentCurve.get_point_position(1).z
+				var P2y = (P3y + currentCurve.get_point_in(1).z)
+				P0y = -P0y
+				P1y = -P1y
+				P2y = -P2y
+				P3y = -P3y
+				
+				#print(P0x," ",P1x," ",P2x," ",P3x)
+				#print(P0y," ",P1y," ",P2y," ",P3y)
+				
+				
+				var a = currentBotRotation
+				var b = (splineD(P0x,P1x,P2x,P3x,0) * splineDD(P0y,P1y,P2y,P3y,0) - splineD(P0y,P1y,P2y,P3y,0) * splineDD(P0x,P1x,P2x,P3x,0)) * 90 / (curveLength*curveLength)
+				var c = (splineD(P0x,P1x,P2x,P3x,0) * splineDDD(P0y,P1y,P2y,P3y,0) - splineD(P0y,P1y,P2y,P3y,0) * splineDDD(P0x,P1x,P2x,P3x,0)) * 90 / (curveLength*curveLength)
+				var d = secondBotRotation
+				var e = (splineD(P0x,P1x,P2x,P3x,1) * splineDD(P0y,P1y,P2y,P3y,1) - splineD(P0y,P1y,P2y,P3y,1) * splineDD(P0x,P1x,P2x,P3x,1)) * 90 / (curveLength*curveLength)
+				var f = (splineD(P0x,P1x,P2x,P3x,1) * splineDDD(P0y,P1y,P2y,P3y,1) - splineD(P0y,P1y,P2y,P3y,1) * splineDDD(P0x,P1x,P2x,P3x,1)) * 90 / (curveLength*curveLength)
+				#print(curveLength)
+				#print("ABC: ",a," : ",b," : ",c," : ",d," : ",e," : ",f," : ",progress)
+				
+				var a1 = 0.05*f-0.6*(-0.25*f+e)+6*(0.05*f-0.4*e+d)-0.5*c-3*b-6*a
+				var b1 = -0.25*f+e-15*(0.05*f-0.4*e+d)+1.5*c+8*b+15*a
+				var c1 = 10*(0.05*f-0.4*e+d)-1.5*c-6*b-10*a
+				var d1 = 0.5*c
+				var e1 = b
+				var f1 = a
+				#print("123: ",a1," : ",b1," : ",c1," : ",d1," : ",e1," : ",f1," : ",progress)
+				
+				heading = pow(progress,5)*a1 + pow(progress,4)*b1 + pow(progress,3)*c1 + pow(progress,2)*d1 + progress*e1 + f1
+				heading = currentBotRotation*smoothStarting(progress)+smoothHeading(progress)*heading+secondBotRotation*smoothEnding(progress)
+				print(smoothEnding(progress), " : ", progress)
+				heading = deg_to_rad(heading)
+			
+			
+			
 			self.rotation.y = heading
 			get_parent().progress_ratio = progress
 func stopPreview():
@@ -129,3 +166,16 @@ func splineDD(P0,P1,P2,P3,t):
 	return (2*(3*P0-6*P1+3*P2)) + (6*t*(-P0+3*P1-3*P2+P3))
 func splineDDD(P0,P1,P2,P3,t):
 	return (6*(-P0+3*P1-3*P2+P3))
+
+func smoothHeading(t: float) -> float:
+	return -pow(-2 * t + 1, 4) + 1
+func smoothStarting(t):
+	if t <= 0.5:
+		return pow(-(2 * t - 1), 4)
+	else:
+		return 0.0
+func smoothEnding(t):
+	if t >= 0.5:
+		return pow(2 * t - 1, 4)
+	else:
+		return 0.0
