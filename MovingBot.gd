@@ -12,14 +12,16 @@ var showingPreview = false
 
 var speed = 1
 
+var currentCurve : Curve3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	progress = 0
 	visible = false
 	pathSection = 0
 	curve = curve.curve
+	currentCurve = curve
 	fullCurve = fullCurve.curve
-	
 	global.previewBot = self
 
 
@@ -55,7 +57,6 @@ func _process(delta):
 		self.position.y = ghostBlock.scale.y/2
 		
 		if len(global.botOrder) > 1:
-			print(pathSection)
 			curve.clear_points()
 			if progress >=0.999:
 				if pathSection != len(global.botOrder)-2:
@@ -66,55 +67,37 @@ func _process(delta):
 			curve.add_point(fullCurve.get_point_position(pathSection),fullCurve.get_point_in(pathSection), fullCurve.get_point_out(pathSection))
 			curve.add_point(fullCurve.get_point_position(pathSection+1),fullCurve.get_point_in(pathSection+1), fullCurve.get_point_out(pathSection+1))
 			
-			var tanAngleStart = atan2(fullCurve.get_point_out(pathSection).x,fullCurve.get_point_out(pathSection).z)
-			tanAngleStart -= PI
-			tanAngleStart = fmod(tanAngleStart,TAU)
-			tanAngleStart = fmod((tanAngleStart + TAU), TAU)
-			if (tanAngleStart > PI):
-				tanAngleStart -= TAU
+			var P0x = currentCurve.get_point_position(0).x
+			var P1x = P0x +currentCurve.get_point_out(0).x
+			var P3x = currentCurve.get_point_position(1).x
+			var P2x = P3x + currentCurve.get_point_in(1).x
 			
-			var tanAngleEnd = atan2(fullCurve.get_point_in(pathSection+1).x,fullCurve.get_point_in(pathSection+1).z)
-			tanAngleEnd -= TAU
-			tanAngleEnd = fmod(tanAngleEnd,TAU)
-			tanAngleEnd = fmod((tanAngleEnd + TAU), TAU)
-			if (tanAngleEnd > PI):
-				tanAngleEnd -= TAU
+			var P0y = currentCurve.get_point_position(0).z
+			var P1y = P0y +currentCurve.get_point_out(0).z
+			var P3y = currentCurve.get_point_position(1).z
+			var P2y = P3y + currentCurve.get_point_in(1).z
 			
-			var currentBotRotation = fmod(global.botOrder[pathSection].rotation.y,TAU)
-			currentBotRotation = fmod((currentBotRotation + TAU), TAU)
-			var secondBotRotation = fmod(global.botOrder[pathSection+1].rotation.y,TAU)
-			secondBotRotation = fmod((secondBotRotation + TAU), TAU)
+			var a = 0
+			var b = (splineD(P0x,P1x,P2x,P3x,0) * splineDD(P0y,P1y,P2y,P3y,0) - splineD(P0y,P1y,P2y,P3y,0) * splineD(P0x,P1x,P2x,P3x,0))*curveLength
+			var c = (splineD(P0x,P1x,P2x,P3x,0) * splineDDD(P0y,P1y,P2y,P3y,0) - splineD(P0y,P1y,P2y,P3y,0) * splineDDD(P0x,P1x,P2x,P3x,0))*curveLength
+			var d = 0
+			var e = (splineD(P0x,P1x,P2x,P3x,1) * splineDD(P0y,P1y,P2y,P3y,1) - splineD(P0y,P1y,P2y,P3y,1) * splineD(P0x,P1x,P2x,P3x,1))*curveLength
+			var f = (splineD(P0x,P1x,P2x,P3x,1) * splineDDD(P0y,P1y,P2y,P3y,1) - splineD(P0y,P1y,P2y,P3y,1) * splineDDD(P0x,P1x,P2x,P3x,1))*curveLength
 			
-			if (currentBotRotation > PI):
-				currentBotRotation -= TAU
-			if (secondBotRotation > PI):
-				secondBotRotation -= TAU
+			var a1 = 0.05*f-0.6*(-0.25*f+e)+6*(0.05*f-0.4*e+d)-0.5*c-3*b-6*a
+			var b1 = -0.25*f+e-15*(0.05*f-0.4*e+d)+1.5*c+8*b+15*a
+			var c1 = 10*(0.05*f-0.4*e+d)-1.5*c-6*b-10*a
+			var d1 = 0.5*c
+			var e1 = b
+			var f1 = a
 			
-			print(tanAngleEnd)
-			print(getTanAngle(0.995,tanAngleEnd))
-			var dx0 = (getTanAngle(0.005,tanAngleStart) - tanAngleStart)*500
-			var dx1 = (tanAngleEnd - getTanAngle(0.995,tanAngleEnd))*500
-			dx0 = clamp(dx0, -10, 10)
-			dx1 = clamp(dx1, -10, 10)
-			print(dx0)
-			print(dx1)
+			var heading = pow(progress,5)*a1 + pow(progress,4)*b1 + pow(progress,3)*c1 + pow(progress,2)*d1 + progress*e1 + f1
+			heading = deg_to_rad(heading)
 			
 			var interpType = global.botOrder[pathSection].get_meta("interpType")
 			if interpType == "linear":
-				dx0 = 0
-				dx1 = 0
-			
-				
-			
-			var a = 2 * currentBotRotation + dx0 - 2 * secondBotRotation + dx1
-			var b = -3 * currentBotRotation - 2 * dx0 + 3 * secondBotRotation - dx1
-			var c = dx0
-			var d = currentBotRotation
-			
-			var setRot = (a * pow(progress,3)) + (b * pow(progress,2)) + (c * progress) + d
-			
-			self.rotation.y = setRot
-			
+				pass
+			self.rotation.y = heading
 			get_parent().progress_ratio = progress
 func stopPreview():
 	self.visible = false
@@ -137,3 +120,12 @@ func getTanAngle(pos, ref):
 	if abs((newRot - TAU)-ref) < abs(newRot-ref):
 		newRot -= TAU
 	return newRot
+
+func splinePos(P0,P1,P2,P3,t):
+	return P0 + (t*(-3*P0+3*P1)) + (pow(t,2)*(3*P0-6*P1+3*P2)) + (pow(t,3)*(-P0+3*P1-3*P2+P3))
+func splineD(P0,P1,P2,P3,t):
+	return ((-3*P0+3*P1)) + (2*t*(3*P0-6*P1+3*P2)) + (3*pow(t,2)*(-P0+3*P1-3*P2+P3))
+func splineDD(P0,P1,P2,P3,t):
+	return (2*(3*P0-6*P1+3*P2)) + (6*t*(-P0+3*P1-3*P2+P3))
+func splineDDD(P0,P1,P2,P3,t):
+	return (6*(-P0+3*P1-3*P2+P3))
